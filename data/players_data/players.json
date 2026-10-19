@@ -1,0 +1,79 @@
+[
+    {
+        "lastname": "Lefèvre",
+        "firstname": "Chloé",
+        "birthdate": "05/11/2001",
+        "ranking": 9,
+        "cnid": "CD78901"
+    },
+    {
+        "lastname": "Dubois",
+        "firstname": "Léa",
+        "birthdate": "12/03/1995",
+        "ranking": 7,
+        "cnid": "AZ98765"
+    },
+    {
+        "lastname": "Thomas",
+        "firstname": "Owen",
+        "birthdate": "15/04/1998",
+        "ranking": 10,
+        "cnid": "QR76543"
+    },
+    {
+        "lastname": "Forelle",
+        "firstname": "Lionel",
+        "birthdate": "06/09/1969",
+        "ranking": 1024,
+        "cnid": "AE12345"
+    },
+    {
+        "lastname": "Nguyen",
+        "firstname": "Sophie",
+        "birthdate": "01/09/1994",
+        "ranking": 5,
+        "cnid": "XY12345"
+    },
+    {
+        "lastname": "Bernard",
+        "firstname": "Lucas",
+        "birthdate": "14/02/2000",
+        "ranking": 8,
+        "cnid": "PQ98765"
+    },
+    {
+        "lastname": "White",
+        "firstname": "I",
+        "birthdate": "03/11/2000",
+        "ranking": 2,
+        "cnid": "BC56789"
+    },
+    {
+        "lastname": "Davis",
+        "firstname": "Ava",
+        "birthdate": "07/12/1993",
+        "ranking": 5,
+        "cnid": "XY23456"
+    },
+    {
+        "lastname": "Moore",
+        "firstname": "Sophia",
+        "birthdate": "06/06/1997",
+        "ranking": 7,
+        "cnid": "MN12345"
+    },
+    {
+        "lastname": "Anderson",
+        "firstname": "Mia",
+        "birthdate": "20/02/1994",
+        "ranking": 8,
+        "cnid": "UV23456"
+    },
+    {
+        "lastname": "Clark",
+        "firstname": "Jackson",
+        "birthdate": "21/09/2006",
+        "ranking": 8,
+        "cnid": "ST12345"
+    }
+]

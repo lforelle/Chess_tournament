@@ -1,0 +1,23 @@
+Le fichier json contiendra les tournois, leurs joueurs, leurs tours, leurs matchs et leurs résultats:
+[
+  {
+    "id": 1,
+    "nom": "Tournoi de Paris",
+    "lieu": "Paris",
+    "nombre_tours": 2,
+    "joueurs": [1, 2],
+    "tours": [
+      {
+        "numero": 1,
+        "matchs": [
+          {
+            "joueur_blanc": 1,
+            "joueur_noir": 2,
+            "score_blanc": 1,
+            "score_noir": 0
+          }
+        ]
+      }
+    ]
+  }
+]

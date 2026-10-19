@@ -1,0 +1,1 @@
+"""record a match between two players and its result."""
