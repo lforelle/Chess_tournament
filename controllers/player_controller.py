@@ -16,8 +16,8 @@ class PlayerController:
             cnid,
         )
 
-        self.repository.save(player)
         self.players.append(player)
+        self.repository.save_all(self.players)
 
         return player
 
