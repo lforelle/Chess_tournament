@@ -39,7 +39,7 @@ def main():
         choice = input("\nVotre choix : ")
 
         if choice == "1":
-            menu_create_player(player_controller)
+            menu_create_player(player_controller, player_view)
 
         elif choice == "2":
             menu_update_player(player_controller, player_view)

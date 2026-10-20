@@ -29,18 +29,6 @@ class PlayerRepository:
 
         return players
 
-    def save(self, player):
-        players = self.load_all()
-        players.append(player)
-
-        with self.file_path.open("w", encoding="utf-8") as file:
-            json.dump(
-                [saved_player.to_dict() for saved_player in players],
-                file,
-                ensure_ascii=False,
-                indent=4,
-            )
-
     def save_all(self, players):
         with self.file_path.open("w", encoding="utf-8") as file:
             json.dump(
