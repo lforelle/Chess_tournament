@@ -1,13 +1,13 @@
 """Menu used to select the action to do in the program"""
-from menu.menu_create_player import menu_create_player
+from menus.menu_create_player import menu_create_player
 from controllers.player_controller import PlayerController
-from menu.menu_update_player import menu_update_player
+from menus.menu_update_player import menu_update_player
 from views.player_view import PlayerView
 from repositories.player_repository import PlayerRepository
-from menu.menu_remove_player import menu_remove_player
+from menus.menu_remove_player import menu_remove_player
 from controllers.match_controller import MatchController
 from views.match_view import MatchView
-from menu.menu_create_match import menu_create_match
+from menus.menu_create_match import menu_create_match
 from repositories.match_repository import MatchRepository
 
 

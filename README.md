@@ -20,7 +20,7 @@ Application en ligne de commande pour gérer les joueurs d'un tournoi d'échecs.
 Depuis la racine du projet :
 
 ```bash
-python main.py
+python menu.py
 ```
 
 ## État du développement
@@ -31,8 +31,8 @@ Les modèles et fichiers de base pour les tournois, les tours et les matchs sont
 
 ```text
 Chess_tournament/
-├── main.py                         # Point d'entrée et menu principal
-├── menu/                           # Menus de création, modification et suppression
+├── menu.py                         # Point d'entrée et menu principal
+├── menus/                           # Menus de création, modification et suppression
 ├── models/                         # Modèles Player, Tournament, Round et Match
 ├── controllers/                    # Logique métier
 ├── repositories/                   # Accès aux données des joueurs
