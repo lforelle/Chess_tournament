@@ -1,16 +1,26 @@
 """Menu used to select the action to do in the program"""
-from menu.menu_create_player import menu_create_player
+from menus.menu_create_player import menu_create_player
 from controllers.player_controller import PlayerController
-from menu.menu_update_player import menu_update_player
+from menus.menu_update_player import menu_update_player
 from views.player_view import PlayerView
 from repositories.player_repository import PlayerRepository
-from menu.menu_remove_player import menu_remove_player
+from menus.menu_remove_player import menu_remove_player
+from controllers.match_controller import MatchController
+from views.match_view import MatchView
+from menus.menu_create_match import menu_create_match
+from repositories.match_repository import MatchRepository
 
 
 def main():
     repository = PlayerRepository()
     player_controller = PlayerController(repository)
     player_view = PlayerView()
+    match_repository = MatchRepository()
+    match_controller = MatchController(
+        match_repository,
+        player_controller.get_players(),
+    )
+    match_view = MatchView()
 
     while True:
         print("\n### Tournois d'Echecs ###\n")
@@ -52,7 +62,7 @@ def main():
             player_view.display_players(players)
 
         elif choice == "5":
-            pass
+            menu_create_match(player_controller, player_view, match_controller, match_view)
 
         elif choice == "6":
             pass

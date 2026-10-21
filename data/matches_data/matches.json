@@ -1,0 +1,16 @@
+[
+    {
+        "player1_cnid": "XY12345",
+        "player2_cnid": "PQ98765",
+        "score1": 0,
+        "score2": 0,
+        "result": null
+    },
+    {
+        "player1_cnid": "QR76543",
+        "player2_cnid": "XY12345",
+        "score1": 0,
+        "score2": 0,
+        "result": null
+    }
+]

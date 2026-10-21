@@ -1,6 +1,6 @@
 """Update players data."""
 
-from menu.menu_create_player import (
+from menus.menu_create_player import (
     ask_name,
     ask_birthdate,
     ask_ranking,
