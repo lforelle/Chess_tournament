@@ -1,45 +1,62 @@
 # Gestionnaire de tournois d'échecs
 
-Application en ligne de commande pour gérer les joueurs d'un tournoi d'échecs.
+Application en ligne de commande permettant de gérer les joueurs et les tours
+d'un tournoi d'échecs.
 
-## Fonctionnalités disponibles
+## Fonctionnalités
 
-- Créer un joueur avec son nom, prénom, date de naissance, classement et identifiant national d'échecs (CNID).
-- Afficher la liste numérotée des joueurs enregistrés.
-- Modifier les informations d'un joueur.
-- Supprimer un joueur après confirmation.
-- Conserver les joueurs entre deux lancements dans `data/players_data/players.json`.
+### Gestion des joueurs
+
+- Créer, afficher, modifier et supprimer un joueur.
 - Valider les données saisies :
   - nom et prénom composés de lettres, espaces ou tirets ;
   - date de naissance au format `JJ/MM/AAAA` ;
-  - classement numérique ;
   - CNID au format `AB12345` (deux lettres suivies de cinq chiffres).
+- Conserver les joueurs dans `data/players_data/players.json` entre deux
+  lancements.
+
+### Gestion des tours et des rencontres
+
+- Générer automatiquement le prochain tour à partir des joueurs enregistrés.
+- Effectuer un tirage aléatoire des appariements et des couleurs au premier
+  tour.
+- Classer les joueurs selon leurs points pour les tours suivants.
+- Éviter les adversaires déjà rencontrés lorsque cela est possible ; les
+  nouvelles rencontres sont privilégiées avant d'autoriser une revanche.
+- Gérer un nombre impair de joueurs : un joueur exempt reçoit un point, en
+  privilégiant ceux qui n'ont pas déjà été exempts.
+- Saisir les résultats `1-0`, `0-1` ou `1/2-1/2` des rencontres du dernier
+  tour.
+- Terminer un tour uniquement lorsque tous ses résultats sont enregistrés.
+- Empêcher la modification d'un tour terminé et la création d'un nouveau tour
+  tant que le précédent n'est pas terminé.
+- Afficher le classement des joueurs, avec leur total de points.
+- Conserver les tours, rencontres, résultats, joueurs exempts et dates de début
+  et de fin dans `data/matches_data/matches.json`.
 
 ## Lancer le programme
 
 Depuis la racine du projet :
 
 ```bash
-python menu.py
+python main.py
 ```
 
-## État du développement
-
-Les modèles et fichiers de base pour les tournois, les tours et les matchs sont présents dans le projet. Leur gestion depuis le menu principal et leur persistance ne sont pas encore implémentées ; les options correspondantes ne réalisent donc aucune action à ce stade.
+Le menu principal donne accès à la gestion des joueurs, à la génération des
+tours, à la saisie des résultats, à la clôture d'un tour et au classement.
 
 ## Architecture du projet
 
 ```text
 Chess_tournament/
-├── menu.py                         # Point d'entrée et menu principal
-├── menus/                           # Menus de création, modification et suppression
-├── models/                         # Modèles Player, Tournament, Round et Match
+├── main.py                         # Point d'entrée
+├── menus/                          # Menus interactifs
+├── models/                         # Modèles Player, Round et Match
 ├── controllers/                    # Logique métier
-├── repositories/                   # Accès aux données des joueurs
+├── repositories/                   # Lecture et écriture des données JSON
 ├── views/                          # Affichage dans le terminal
 ├── data/
-│   ├── players_data/players.json   # Données persistées des joueurs
-│   └── tournaments_data/            # Données de tournois (préparation)
-└── requirements.txt                # Dépendances de développement
+│   ├── players_data/players.json   # Joueurs persistés
+│   └── matches_data/matches.json   # Tours et rencontres persistés
+└── requirements.txt                # Dépendances du projet
 ```
-    

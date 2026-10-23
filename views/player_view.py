@@ -10,7 +10,7 @@ class PlayerView:
             return
 
         number = 1
-        print("Joueur n° | Nom | Prénom | Date Naissance | Classement | CNID")
+        print("Joueur n° | Nom | Prénom | Date Naissance | CNID")
         for player in players:
             print(f"{number} | ", end="")
             print(player)

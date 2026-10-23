@@ -24,15 +24,6 @@ def ask_birthdate():
             print("Erreur : saisissez une date valide au format JJ/MM/AAAA !")
 
 
-def ask_ranking():
-    while True:
-        try:
-            return int(input("Classement : "))
-
-        except ValueError:
-            print("Erreur : saisissez une valeur numerique !")
-
-
 def ask_cnid():
     while True:
         cnid = input("Identifiant national ('AB12345'): ").strip().upper()
@@ -47,14 +38,12 @@ def menu_create_player(player_controller, player_view):
     lastname = ask_name("Nom : ")
     firstname = ask_name("Prénom : ")
     birthdate = ask_birthdate()
-    ranking = ask_ranking()
     cnid = ask_cnid()
 
     player = player_controller.create_player(
         lastname,
         firstname,
         birthdate,
-        ranking,
         cnid,
     )
 

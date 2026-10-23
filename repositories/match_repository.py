@@ -3,36 +3,53 @@
 import json
 from pathlib import Path
 
-from models.match import Match
+from models.round import Round
 
 
 class MatchRepository:
-    """Read and write matches in ``data/matches_data/matches.json``."""
+    """Read and write rounds and their matches in JSON."""
 
     def __init__(self):
         project_root = Path(__file__).resolve().parents[1]
-        self.file_path = project_root / "data" / "matches_data" / "matches.json"
+        self.file_path = (
+            project_root
+            / "data"
+            / "matches_data"
+            / "matches.json"
+        )
 
     def load_all(self, players):
-        """Load matches and associate their CNIDs with loaded Player objects."""
         if not self.file_path.exists() or self.file_path.stat().st_size == 0:
             return []
 
         with self.file_path.open("r", encoding="utf-8") as file:
-            matches_data = json.load(file)
+            rounds_data = json.load(file)
 
-        if not isinstance(matches_data, list):
-            raise ValueError("Le fichier des matchs doit contenir une liste JSON.")
+        if not isinstance(rounds_data, list):
+            raise ValueError("Le fichier doit contenir une liste JSON de tours.")
 
-        players_by_cnid = {player.cnid: player for player in players}
-        return [Match.from_dict(data, players_by_cnid) for data in matches_data]
+        players_by_cnid = {}
 
-    def save_all(self, matches):
-        """Save every match as JSON, creating the data directory if required."""
+        for player in players:
+            players_by_cnid[player.cnid] = player
+
+        rounds = []
+
+        for round_data in rounds_data:
+            round_instance = Round.from_dict(
+                round_data,
+                players_by_cnid,
+            )
+            rounds.append(round_instance)
+
+        return rounds
+
+    def save_all(self, rounds):
         self.file_path.parent.mkdir(parents=True, exist_ok=True)
+
         with self.file_path.open("w", encoding="utf-8") as file:
             json.dump(
-                [match.to_dict() for match in matches],
+                [round_instance.to_dict() for round_instance in rounds],
                 file,
                 ensure_ascii=False,
                 indent=4,

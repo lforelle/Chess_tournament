@@ -2,38 +2,49 @@
 
 
 def menu_create_match(player_controller, player_view, match_controller, match_view):
+    """Create a round and display the matches."""
+
     players = player_controller.get_players()
-    player_view.display_players(players)
 
     if len(players) < 2:
-        print("\nErreur : il faut au moins deux joueurs pour créer un match.")
+        print("\nErreur : il faut au moins deux joueurs pour créer un tour.")
         return
 
-    try:
-        player1_number = int(input("\nNuméro du premier joueur : "))
-        player2_number = int(input("Numéro du second joueur : "))
-    except ValueError:
-        print("Erreur : saisissez des numéros valides.")
+    # Générer automatiquement les rencontres du prochain tour.
+    round_instance = match_controller.generate_next_round(players)
+
+    if round_instance is None:
+        print(
+            f"\nImpossible de générer le tour.\n"
+            "Vérifiez qu'aucun tour précédent n'est encore en cours\n"
+            "et que les rencontres peuvent être créées."
+        )
         return
 
-    player1_index = player1_number - 1
-    player2_index = player2_number - 1
+    print(f"\n--- {round_instance.name} généré ---")
 
-    if not (
-        0 <= player1_index < len(players)
-        and 0 <= player2_index < len(players)
-    ):
-        print("Erreur : un des numéros de joueur n'existe pas.")
+    # Afficher le joueur exempt si le nombre de joueurs est impair.
+    if round_instance.bye_player is not None:
+        player = round_instance.bye_player
+        print(
+            f"\nJoueur exempt : {player.firstname} {player.lastname}"
+        )
+        print("Ce joueur reçoit 1 point.")
+
+    # Afficher les rencontres et les couleurs tirées.
+    if not round_instance.matches:
+        print("\nAucune rencontre n'a été créée.")
         return
 
-    if player1_index == player2_index:
-        print("Erreur : un joueur ne peut pas jouer contre lui-même.")
-        return
+    for index, match in enumerate(round_instance.matches, start=1):
+        white = match.players[0][0]
+        black = match.players[1][0]
 
-    match = match_controller.create_match(
-        players[player1_index],
-        players[player2_index],
-    )
-
-    print(f"\n--- Match créé ---\n{match}")
-    match_view.display_matches(match_controller.get_matches())
+        print(f"\nRencontre {index}")
+        print(
+            f"Blancs : {white.firstname} {white.lastname}"
+        )
+        print(
+            f"Noirs  : {black.firstname} {black.lastname}"
+        )
+        print("Scores : 0 - 0")
