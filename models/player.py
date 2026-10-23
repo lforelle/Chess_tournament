@@ -4,21 +4,19 @@ from datetime import date, datetime
 
 
 class Player:
-    """A player has a lastname, a firstname, a birthdate, a chess ranking and a Chess National ID
+    """A player has a lastname, a firstname, a birthdate and a Chess National ID
     (format: 'AB12345') that is manually entered on registration.
     """
 
-    def __init__(self, lastname, firstname, birthdate, ranking, cnid):
+    def __init__(self, lastname, firstname, birthdate, cnid):
         self.lastname = lastname
         self.firstname = firstname
         self.birthdate = birthdate
-        self.ranking = ranking
         self.cnid = cnid
 
     def __str__(self):
         return (
-            f"{self.lastname} | {self.firstname} | {self.birthdate} | "
-            f"{self.ranking} | {self.cnid}"
+            f"{self.lastname} | {self.firstname} | {self.birthdate} | {self.cnid}"
         )
 
     def to_dict(self):
@@ -29,6 +27,5 @@ class Player:
             "lastname": self.lastname,
             "firstname": self.firstname,
             "birthdate": self.birthdate,
-            "ranking": self.ranking,
             "cnid": self.cnid,
         }

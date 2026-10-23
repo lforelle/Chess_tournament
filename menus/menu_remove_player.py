@@ -6,28 +6,35 @@ def menu_remove_player(player_controller, player_view):
     player_view.display_players(players)
 
     if not players:
+        print("Erreur: Aucun joueur à supprimer.")
         return
 
     try:
-        player_index_number = int(
-            input("\nQuel est le numéro du joueur à supprimer : ")
+        player_number = int(
+            input("\nQuel est le numéro du joueur à supprimer : ").strip()
         )
     except ValueError:
-        print("Erreur : saisissez un numéro.")
+        print("Erreur : saisissez un numéro de joueur valide.")
         return
 
-    index = player_index_number - 1
+    index_to_remove = player_number - 1
 
-    if not 0 <= index < len(players):
+    if not 0 <= index_to_remove < len(players):
         print("Erreur : ce numéro de joueur n'existe pas.")
         return
 
     print("\n--- Ligne à supprimer ---")
-    player_removing_ok = input("Etes-vous certain de vouloir supprimer ce joueur (o/n) : ")
-    if player_removing_ok.lower() != "o":
+    confirmation = input(
+        "Etes-vous certain de vouloir supprimer ce joueur (o/n) : "
+        ).strip().lower()
+    if confirmation != "o":
+        print(f"Suppression du joueur n°{index_to_remove} annulée.")
         return
 
-    is_removed = player_controller.remove_player(index)
+    is_removed = player_controller.remove_player(index_to_remove)
     if is_removed:
-        print("\nJoueur supprimé.")
+        print(f"\nJoueur n°{index_to_remove} supprimé.\n")
         player_view.display_players(player_controller.get_players())
+    else:
+        print("\nErreur : la suppression du joueur a échoué.")
+

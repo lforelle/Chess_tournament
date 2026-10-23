@@ -2,52 +2,67 @@
 
 
 class Match:
-    """A match and the scores of its two players."""
+    """A match between two players."""
 
-    def __init__(self, player1, player2, score1=0, score2=0, result=None):
-        self.players = ([player1, score1], [player2, score2])
+    VALID_RESULTS = ("1-0", "0-1", "1/2-1/2")
+
+    def __init__(self, player1, player2):
+        self.players = [
+            [player1, 0],
+            [player2, 0],
+        ]
+        self.result = None
+
+    def set_result(self, result):
+        """Record the results and update the scores."""
+
+        if result not in self.VALID_RESULTS:
+            return False
+
+        if result == "1-0":
+            self.players[0][1] = 1
+            self.players[1][1] = 0
+
+        elif result == "0-1":
+            self.players[0][1] = 0
+            self.players[1][1] = 1
+
+        else:
+            self.players[0][1] = 0.5
+            self.players[1][1] = 0.5
+
         self.result = result
+        return True
 
     def to_dict(self):
-        """Return a JSON-serializable representation of the match.
-
-        Players are identified by their CNID so the player information remains
-        stored in a single place: ``data/players_data/players.json``.
-        """
         return {
-            "player1_cnid": self.players[0][0].cnid,
-            "player2_cnid": self.players[1][0].cnid,
-            "score1": self.players[0][1],
-            "score2": self.players[1][1],
+            "players": [
+                {
+                    "cnid": player_score[0].cnid,
+                    "score": player_score[1],
+                }
+                for player_score in self.players
+            ],
             "result": self.result,
         }
 
     @classmethod
     def from_dict(cls, data, players_by_cnid):
-        """Recreate a match from JSON using the already loaded players."""
-        try:
-            player1 = players_by_cnid[data["player1_cnid"]]
-            player2 = players_by_cnid[data["player2_cnid"]]
-        except KeyError as error:
-            raise ValueError(
-                "Le match référence un joueur introuvable : "
-                f"{error.args[0]}"
-            ) from error
+        player1_data = data["players"][0]
+        player2_data = data["players"][1]
 
-        return cls(
-            player1,
-            player2,
-            data.get("score1", 0),
-            data.get("score2", 0),
-            data.get("result"),
-        )
+        player1 = players_by_cnid[player1_data["cnid"]]
+        player2 = players_by_cnid[player2_data["cnid"]]
 
-    def __str__(self):
-        result = self.result if self.result is not None else "Non joué"
-        player1 = self.players[0][0]
-        player2 = self.players[1][0]
-        return (
-            f"{player1.firstname} {player1.lastname} "
-            f"contre {player2.firstname} {player2.lastname} "
-            f"- Résultat : {result}"
-        )
+        match = cls(player1, player2)
+
+        result = data.get("result")
+
+        if result in cls.VALID_RESULTS:
+            match.set_result(result)
+        else:
+            # Compatibility with the previous JSON data.
+            match.players[0][1] = player1_data["score"]
+            match.players[1][1] = player2_data["score"]
+
+        return match

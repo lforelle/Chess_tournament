@@ -22,7 +22,6 @@ class PlayerRepository:
                 data["lastname"],
                 data["firstname"],
                 data["birthdate"],
-                data["ranking"],
                 data["cnid"],
             )
             players.append(player)

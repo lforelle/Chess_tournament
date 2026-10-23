@@ -7,12 +7,11 @@ class PlayerController:
         self.repository = repository
         self.players = self.repository.load_all()
 
-    def create_player(self, lastname, firstname, birthdate, ranking, cnid):
+    def create_player(self, lastname, firstname, birthdate, cnid):
         player = Player(
             lastname,
             firstname,
             birthdate,
-            ranking,
             cnid,
         )
 
@@ -24,7 +23,7 @@ class PlayerController:
     def get_players(self):
         return self.players
 
-    def update_player(self, index, lastname, firstname, birthdate, ranking, cnid):
+    def update_player(self, index, lastname, firstname, birthdate, cnid):
         if not 0 <= index < len(self.players):
             return False
 
@@ -32,7 +31,6 @@ class PlayerController:
         player.lastname = lastname
         player.firstname = firstname
         player.birthdate = birthdate
-        player.ranking = ranking
         player.cnid = cnid
 
         self.repository.save_all(self.players)
@@ -42,9 +40,7 @@ class PlayerController:
         if not 0 <= index < len(self.players):
             return False
 
-        updated_players = self.players.copy()
-        del updated_players[index]
+        del self.players[index]
+        self.repository.save_all(self.players)
 
-        self.repository.save_all(updated_players)
-        self.players = updated_players
         return True
