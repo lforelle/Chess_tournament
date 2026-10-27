@@ -1,4 +1,5 @@
-"""Global menu of the app."""
+"""Menu global de l'application."""
+
 from menus.menu_create_player import menu_create_player
 from menus.menu_update_player import menu_update_player
 from menus.menu_remove_player import menu_remove_player
@@ -12,9 +13,10 @@ def menu_global(
     player_controller,
     player_view,
     match_controller,
-    match_view
-    ):
-
+    match_view,
+    round_controller,
+    ranking_controller,
+):
     while True:
         print("\n######### Tournois d'Echecs #########\n")
         print("   --------- Joueurs ----------")
@@ -48,30 +50,33 @@ def menu_global(
             menu_create_match(
                 player_controller,
                 player_view,
-                match_controller,
-                match_view
+                round_controller,
+                match_view,
             )
 
         elif choice == "6":
             menu_record_scores(match_controller)
 
         elif choice == "7":
-            rounds = match_controller.get_rounds()
+            rounds = round_controller.get_rounds()
 
             if not rounds:
-                print("Aucun tour n'a été créé.")
+                print("\nAucun tour n'a été créé.")
             else:
                 last_round_index = len(rounds) - 1
 
-                if match_controller.finish_round(last_round_index):
+                if round_controller.finish_round(last_round_index):
                     print(f"\nLe {rounds[-1].name} est terminé.")
                 else:
-                    print("Impossible de terminer ce tour.")
+                    print(
+                        "\nImpossible de terminer ce tour. "
+                        "Vérifiez que toutes les rencontres ont un résultat."
+                    )
 
         elif choice == "8":
             menu_show_ranking(
                 player_controller,
-                match_controller,
+                ranking_controller,
                 match_view,
             )
 

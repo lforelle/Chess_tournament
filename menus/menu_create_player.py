@@ -34,7 +34,7 @@ def ask_cnid():
         print("Erreur : saisissez 2 lettres suivies de 5 chiffres !")
 
 
-def menu_create_player(player_controller, player_view):    
+def menu_create_player(player_controller, player_view):
     lastname = ask_name("Nom : ")
     firstname = ask_name("Prénom : ")
     birthdate = ask_birthdate()

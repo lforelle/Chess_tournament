@@ -3,7 +3,8 @@ from models.match import Match
 
 
 class Round:
-    """A tournament round containing matches and an optional bye."""
+    """A tournament round containing matches and an optional bye in case a player has no opponent.
+    For instance if the number of players, engaged in the tournament, is odd"""
 
     def __init__(self, name, matches=None, bye_player=None):
         self.name = name
