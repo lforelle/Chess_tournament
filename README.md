@@ -1,62 +1,87 @@
-# Gestionnaire de tournois d'échecs
+# Gestionnaire de tournois d’échecs
 
-Application en ligne de commande permettant de gérer les joueurs et les tours
-d'un tournoi d'échecs.
+Application en ligne de commande pour gérer les joueurs et les tours d’un
+tournoi d’échecs. Les données sont conservées dans des fichiers JSON.
 
-## Fonctionnalités
+## Prérequis
 
-### Gestion des joueurs
+- Python 3
+- `venv` et `pip`
 
-- Créer, afficher, modifier et supprimer un joueur.
-- Valider les données saisies :
-  - nom et prénom composés de lettres, espaces ou tirets ;
-  - date de naissance au format `JJ/MM/AAAA` ;
-  - CNID au format `AB12345` (deux lettres suivies de cinq chiffres).
-- Conserver les joueurs dans `data/players_data/players.json` entre deux
-  lancements.
+Sur Debian ou Ubuntu, installez les prérequis avec :
 
-### Gestion des tours et des rencontres
+```bash
+sudo apt update
+sudo apt install python3 python3-venv python3-pip
+```
 
-- Générer automatiquement le prochain tour à partir des joueurs enregistrés.
-- Effectuer un tirage aléatoire des appariements et des couleurs au premier
-  tour.
-- Classer les joueurs selon leurs points pour les tours suivants.
-- Éviter les adversaires déjà rencontrés lorsque cela est possible ; les
-  nouvelles rencontres sont privilégiées avant d'autoriser une revanche.
-- Gérer un nombre impair de joueurs : un joueur exempt reçoit un point, en
-  privilégiant ceux qui n'ont pas déjà été exempts.
-- Saisir les résultats `1-0`, `0-1` ou `1/2-1/2` des rencontres du dernier
-  tour.
-- Terminer un tour uniquement lorsque tous ses résultats sont enregistrés.
-- Empêcher la modification d'un tour terminé et la création d'un nouveau tour
-  tant que le précédent n'est pas terminé.
-- Afficher le classement des joueurs, avec leur total de points.
-- Conserver les tours, rencontres, résultats, joueurs exempts et dates de début
-  et de fin dans `data/matches_data/matches.json`.
+## Installation
+
+Depuis la racine du projet, créez et activez un environnement virtuel :
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+Installez les dépendances du projet :
+
+```bash
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
 
 ## Lancer le programme
 
-Depuis la racine du projet :
+Depuis la racine du projet, avec l’environnement virtuel activé :
 
 ```bash
 python main.py
 ```
 
-Le menu principal donne accès à la gestion des joueurs, à la génération des
-tours, à la saisie des résultats, à la clôture d'un tour et au classement.
+Le menu principal permet d’accéder aux fonctions de gestion disponibles dans
+l’application.
 
-## Architecture du projet
+## Fonctionnalités documentées
+
+### Joueurs
+
+- Créer, afficher, modifier et supprimer un joueur.
+- Valider les noms et prénoms, la date de naissance au format `JJ/MM/AAAA`
+  et le CNID au format `AB12345`.
+- Conserver les joueurs dans `data/players_data/players.json`.
+
+### Tours et rencontres
+
+- Générer des tours et des appairages à partir des joueurs enregistrés.
+- Saisir les résultats `1-0`, `0-1` ou `1/2-1/2`.
+- Modifier les scores si besoin.
+- Terminer un tour.
+- Afficher le classement des joueurs et leur total de points.
+- Conserver les tours, rencontres, résultats, joueurs exempts et dates dans
+  `data/matches_data/matches.json`.
+
+## Données
+
+Les fichiers JSON sont stockés dans le dossier `data/` :
+
+```text
+data/
+├── players_data/players.json
+└── matches_data/matches.json
+```
+
+## Structure du projet
 
 ```text
 Chess_tournament/
-├── main.py                         # Point d'entrée
-├── menus/                          # Menus interactifs
-├── models/                         # Modèles Player, Round et Match
-├── controllers/                    # Logique métier
-├── repositories/                   # Lecture et écriture des données JSON
-├── views/                          # Affichage dans le terminal
+├── main.py
+├── controllers/
 ├── data/
-│   ├── players_data/players.json   # Joueurs persistés
-│   └── matches_data/matches.json   # Tours et rencontres persistés
-└── requirements.txt                # Dépendances du projet
+├── menus/
+├── models/
+├── repositories/
+├── services/
+├── views/
+└── requirements.txt
 ```

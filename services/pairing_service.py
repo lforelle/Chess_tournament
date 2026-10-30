@@ -3,7 +3,7 @@ import random
 
 
 class PairingService:
-    """Gère l'appariement des joueurs et les exemptions."""
+    """Gère l'appairage des joueurs et les exemptions."""
 
     def __init__(self, rounds):
         self.rounds = rounds
