@@ -98,7 +98,7 @@ class RoundController:
             round_instance.set_bye_player(bye_player)
 
         for player1, player2 in pairings:
-            # Déterminer aléatoirement les blancs et les noirs.
+            # Déterminer aléatoirement les blancs (1ere position) et les noirs.
             if random.choice([True, False]):
                 player1, player2 = player2, player1
 

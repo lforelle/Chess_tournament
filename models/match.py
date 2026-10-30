@@ -36,7 +36,7 @@ class Match:
 
     def to_dict(self):
         """Convert the match into a dictionary."""
-        
+
         players_data = []
 
         for player_score in self.players:

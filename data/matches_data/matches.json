@@ -512,233 +512,14 @@
     },
     {
         "name": "Tour 8",
-        "start_datetime": "2026-10-23T16:09:05.692892",
-        "end_datetime": "2026-10-23T16:09:43.061364",
-        "bye_player_cnid": null,
-        "matches": [
-            {
-                "players": [
-                    {
-                        "cnid": "UV23456",
-                        "score": 1
-                    },
-                    {
-                        "cnid": "AZ98765",
-                        "score": 0
-                    }
-                ],
-                "result": "1-0"
-            },
-            {
-                "players": [
-                    {
-                        "cnid": "CD78901",
-                        "score": 0.5
-                    },
-                    {
-                        "cnid": "ST12345",
-                        "score": 0.5
-                    }
-                ],
-                "result": "1/2-1/2"
-            },
-            {
-                "players": [
-                    {
-                        "cnid": "XY12345",
-                        "score": 0
-                    },
-                    {
-                        "cnid": "XY23456",
-                        "score": 1
-                    }
-                ],
-                "result": "0-1"
-            },
-            {
-                "players": [
-                    {
-                        "cnid": "PQ98765",
-                        "score": 0
-                    },
-                    {
-                        "cnid": "BC56789",
-                        "score": 1
-                    }
-                ],
-                "result": "0-1"
-            },
-            {
-                "players": [
-                    {
-                        "cnid": "MN12345",
-                        "score": 0
-                    },
-                    {
-                        "cnid": "QR76543",
-                        "score": 1
-                    }
-                ],
-                "result": "0-1"
-            }
-        ]
-    },
-    {
-        "name": "Tour 9",
-        "start_datetime": "2026-10-23T16:12:19.155521",
-        "end_datetime": "2026-10-23T16:23:55.871051",
-        "bye_player_cnid": null,
-        "matches": [
-            {
-                "players": [
-                    {
-                        "cnid": "UV23456",
-                        "score": 1
-                    },
-                    {
-                        "cnid": "QR76543",
-                        "score": 0
-                    }
-                ],
-                "result": "1-0"
-            },
-            {
-                "players": [
-                    {
-                        "cnid": "XY23456",
-                        "score": 0.5
-                    },
-                    {
-                        "cnid": "PQ98765",
-                        "score": 0.5
-                    }
-                ],
-                "result": "1/2-1/2"
-            },
-            {
-                "players": [
-                    {
-                        "cnid": "BC56789",
-                        "score": 0.5
-                    },
-                    {
-                        "cnid": "AZ98765",
-                        "score": 0.5
-                    }
-                ],
-                "result": "1/2-1/2"
-            },
-            {
-                "players": [
-                    {
-                        "cnid": "ST12345",
-                        "score": 1
-                    },
-                    {
-                        "cnid": "XY12345",
-                        "score": 0
-                    }
-                ],
-                "result": "1-0"
-            },
-            {
-                "players": [
-                    {
-                        "cnid": "MN12345",
-                        "score": 0
-                    },
-                    {
-                        "cnid": "CD78901",
-                        "score": 1
-                    }
-                ],
-                "result": "0-1"
-            }
-        ]
-    },
-    {
-        "name": "Tour 10",
-        "start_datetime": "2026-10-23T16:23:58.880843",
-        "end_datetime": "2026-10-23T16:24:51.337323",
-        "bye_player_cnid": null,
-        "matches": [
-            {
-                "players": [
-                    {
-                        "cnid": "UV23456",
-                        "score": 0
-                    },
-                    {
-                        "cnid": "QR76543",
-                        "score": 1
-                    }
-                ],
-                "result": "0-1"
-            },
-            {
-                "players": [
-                    {
-                        "cnid": "MN12345",
-                        "score": 0
-                    },
-                    {
-                        "cnid": "BC56789",
-                        "score": 1
-                    }
-                ],
-                "result": "0-1"
-            },
-            {
-                "players": [
-                    {
-                        "cnid": "CD78901",
-                        "score": 1
-                    },
-                    {
-                        "cnid": "XY23456",
-                        "score": 0
-                    }
-                ],
-                "result": "1-0"
-            },
-            {
-                "players": [
-                    {
-                        "cnid": "ST12345",
-                        "score": 0
-                    },
-                    {
-                        "cnid": "XY12345",
-                        "score": 1
-                    }
-                ],
-                "result": "0-1"
-            },
-            {
-                "players": [
-                    {
-                        "cnid": "AZ98765",
-                        "score": 0.5
-                    },
-                    {
-                        "cnid": "PQ98765",
-                        "score": 0.5
-                    }
-                ],
-                "result": "1/2-1/2"
-            }
-        ]
-    },
-    {
-        "name": "Tour 11",
-        "start_datetime": "2026-10-26T08:29:15.773984",
-        "end_datetime": "2026-10-26T08:30:21.156877",
+        "start_datetime": "2026-10-29T11:29:07.173821",
+        "end_datetime": "2026-10-29T11:29:49.413489",
         "bye_player_cnid": "AB34567",
         "matches": [
             {
                 "players": [
                     {
-                        "cnid": "AZ98765",
+                        "cnid": "QR76543",
                         "score": 1
                     },
                     {
@@ -751,24 +532,24 @@
             {
                 "players": [
                     {
-                        "cnid": "PQ98765",
-                        "score": 1
+                        "cnid": "BC56789",
+                        "score": 0.5
                     },
                     {
-                        "cnid": "BC56789",
-                        "score": 0
+                        "cnid": "AZ98765",
+                        "score": 0.5
                     }
                 ],
-                "result": "1-0"
+                "result": "1/2-1/2"
             },
             {
                 "players": [
                     {
-                        "cnid": "XY12345",
+                        "cnid": "XY23456",
                         "score": 0
                     },
                     {
-                        "cnid": "CD78901",
+                        "cnid": "PQ98765",
                         "score": 1
                     }
                 ],
@@ -781,7 +562,7 @@
                         "score": 0
                     },
                     {
-                        "cnid": "XY23456",
+                        "cnid": "XY12345",
                         "score": 1
                     }
                 ],
@@ -790,71 +571,71 @@
             {
                 "players": [
                     {
-                        "cnid": "QR76543",
-                        "score": 0.5
+                        "cnid": "CD78901",
+                        "score": 1
                     },
                     {
                         "cnid": "MN12345",
-                        "score": 0.5
+                        "score": 0
                     }
                 ],
-                "result": "1/2-1/2"
+                "result": "1-0"
             }
         ]
     },
     {
-        "name": "Tour 12",
-        "start_datetime": "2026-10-27T12:25:33.136119",
-        "end_datetime": "2026-10-27T12:26:36.663675",
+        "name": "Tour 9",
+        "start_datetime": "2026-10-30T14:11:52.123177",
+        "end_datetime": "2026-10-30T14:41:12.593434",
         "bye_player_cnid": "QR76543",
         "matches": [
             {
                 "players": [
                     {
-                        "cnid": "AB34567",
+                        "cnid": "BC56789",
                         "score": 1
                     },
                     {
-                        "cnid": "CD78901",
+                        "cnid": "PQ98765",
                         "score": 0
                     }
                 ],
                 "result": "1-0"
+            },
+            {
+                "players": [
+                    {
+                        "cnid": "AZ98765",
+                        "score": 0.5
+                    },
+                    {
+                        "cnid": "UV23456",
+                        "score": 0.5
+                    }
+                ],
+                "result": "1/2-1/2"
+            },
+            {
+                "players": [
+                    {
+                        "cnid": "ST12345",
+                        "score": 0
+                    },
+                    {
+                        "cnid": "CD78901",
+                        "score": 1
+                    }
+                ],
+                "result": "0-1"
             },
             {
                 "players": [
                     {
                         "cnid": "XY12345",
-                        "score": 0.5
-                    },
-                    {
-                        "cnid": "BC56789",
-                        "score": 0.5
-                    }
-                ],
-                "result": "1/2-1/2"
-            },
-            {
-                "players": [
-                    {
-                        "cnid": "UV23456",
-                        "score": 0
-                    },
-                    {
-                        "cnid": "AZ98765",
                         "score": 1
-                    }
-                ],
-                "result": "0-1"
-            },
-            {
-                "players": [
+                    },
                     {
                         "cnid": "XY23456",
-                        "score": 1
-                    },
-                    {
-                        "cnid": "ST12345",
                         "score": 0
                     }
                 ],
@@ -863,84 +644,11 @@
             {
                 "players": [
                     {
-                        "cnid": "PQ98765",
-                        "score": 0.5
-                    },
-                    {
                         "cnid": "MN12345",
-                        "score": 0.5
-                    }
-                ],
-                "result": "1/2-1/2"
-            }
-        ]
-    },
-    {
-        "name": "Tour 13",
-        "start_datetime": "2026-10-27T16:28:09.662540",
-        "end_datetime": null,
-        "bye_player_cnid": "XY12345",
-        "matches": [
-            {
-                "players": [
-                    {
-                        "cnid": "XY23456",
-                        "score": 0.5
+                        "score": 1
                     },
                     {
                         "cnid": "AB34567",
-                        "score": 0.5
-                    }
-                ],
-                "result": "1/2-1/2"
-            },
-            {
-                "players": [
-                    {
-                        "cnid": "PQ98765",
-                        "score": 0
-                    },
-                    {
-                        "cnid": "BC56789",
-                        "score": 1
-                    }
-                ],
-                "result": "0-1"
-            },
-            {
-                "players": [
-                    {
-                        "cnid": "QR76543",
-                        "score": 0
-                    },
-                    {
-                        "cnid": "CD78901",
-                        "score": 1
-                    }
-                ],
-                "result": "0-1"
-            },
-            {
-                "players": [
-                    {
-                        "cnid": "UV23456",
-                        "score": 0
-                    },
-                    {
-                        "cnid": "ST12345",
-                        "score": 1
-                    }
-                ],
-                "result": "0-1"
-            },
-            {
-                "players": [
-                    {
-                        "cnid": "MN12345",
-                        "score": 1
-                    },
-                    {
-                        "cnid": "AZ98765",
                         "score": 0
                     }
                 ],

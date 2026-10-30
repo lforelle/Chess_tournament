@@ -1,7 +1,7 @@
 """Match creation menu."""
 
 
-def menu_create_match(player_controller, player_view, round_controller, match_view):
+def menu_create_match(player_controller, round_controller):
     """Create a round and display the matches."""
 
     players = player_controller.get_players()
