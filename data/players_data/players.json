@@ -58,5 +58,11 @@
         "firstname": "Jackson",
         "birthdate": "21/09/2006",
         "cnid": "ST12345"
+    },
+    {
+        "lastname": "Garcia",
+        "firstname": "Mateo",
+        "birthdate": "18/05/1998",
+        "cnid": "AB34567"
     }
 ]

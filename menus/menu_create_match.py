@@ -1,7 +1,7 @@
 """Match creation menu."""
 
 
-def menu_create_match(player_controller, player_view, match_controller, match_view):
+def menu_create_match(player_controller, round_controller):
     """Create a round and display the matches."""
 
     players = player_controller.get_players()
@@ -11,11 +11,11 @@ def menu_create_match(player_controller, player_view, match_controller, match_vi
         return
 
     # Générer automatiquement les rencontres du prochain tour.
-    round_instance = match_controller.generate_next_round(players)
+    round_instance = round_controller.generate_next_round(players)
 
     if round_instance is None:
         print(
-            f"\nImpossible de générer le tour.\n"
+            "\nImpossible de générer le tour.\n"
             "Vérifiez qu'aucun tour précédent n'est encore en cours\n"
             "et que les rencontres peuvent être créées."
         )

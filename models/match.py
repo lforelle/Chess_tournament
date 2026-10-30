@@ -35,19 +35,26 @@ class Match:
         return True
 
     def to_dict(self):
+        """Convert the match into a dictionary."""
+
+        players_data = []
+
+        for player_score in self.players:
+            player_data = {
+                "cnid": player_score[0].cnid,
+                "score": player_score[1],
+            }
+            players_data.append(player_data)
+
         return {
-            "players": [
-                {
-                    "cnid": player_score[0].cnid,
-                    "score": player_score[1],
-                }
-                for player_score in self.players
-            ],
+            "players": players_data,
             "result": self.result,
         }
 
     @classmethod
     def from_dict(cls, data, players_by_cnid):
+        """Rebuild a match from a dictionary."""
+
         player1_data = data["players"][0]
         player2_data = data["players"][1]
 
@@ -60,9 +67,5 @@ class Match:
 
         if result in cls.VALID_RESULTS:
             match.set_result(result)
-        else:
-            # Compatibility with the previous JSON data.
-            match.players[0][1] = player1_data["score"]
-            match.players[1][1] = player2_data["score"]
 
         return match

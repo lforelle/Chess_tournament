@@ -37,4 +37,3 @@ def menu_remove_player(player_controller, player_view):
         player_view.display_players(player_controller.get_players())
     else:
         print("\nErreur : la suppression du joueur a échoué.")
-
