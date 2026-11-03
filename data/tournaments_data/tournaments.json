@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Masterclass",
+        "place": "Lyon",
+        "start_date": "2026-10-20T00:00:00",
+        "end_date": "2026-10-22T00:00:00",
+        "number_of_rounds": 4,
+        "current_round": 0,
+        "description": "zrthr gtr get"
+    },
+    {
+        "name": "chesterton",
+        "place": "Paris",
+        "start_date": "2026-02-10T00:00:00",
+        "end_date": "2026-02-12T00:00:00",
+        "number_of_rounds": 7,
+        "current_round": 0,
+        "description": "sh seg sdgbsdr g vscvs et svczercv"
+    },
+    {
+        "name": "kingchess",
+        "place": "Nancy",
+        "start_date": "2025-05-14T00:00:00",
+        "end_date": "2025-05-16T00:00:00",
+        "number_of_rounds": 9,
+        "current_round": 0,
+        "description": "dghfners sdgb dsg sdbg gbsdfbg"
+    }
+]

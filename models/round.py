@@ -1,3 +1,5 @@
+"""define a round of the tournament."""
+
 from datetime import datetime
 from models.match import Match
 

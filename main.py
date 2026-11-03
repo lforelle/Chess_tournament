@@ -1,6 +1,8 @@
+from repositories.tournament_repository import TournamentRepository
 from repositories.player_repository import PlayerRepository
 from repositories.match_repository import MatchRepository
 
+from controllers.tournament_controller import TournamentController
 from controllers.player_controller import PlayerController
 from controllers.match_controller import MatchController
 from controllers.round_controller import RoundController
@@ -8,6 +10,7 @@ from controllers.ranking_controller import RankingController
 
 from services.pairing_service import PairingService
 
+from views.tournament_view import TournamentView
 from views.player_view import PlayerView
 from views.match_view import MatchView
 
@@ -15,6 +18,9 @@ from menus.menu_global import menu_global
 
 
 def main():
+    tournament_repository = TournamentRepository()
+    tournament_controller = TournamentController(tournament_repository)
+
     player_repository = PlayerRepository()
     player_controller = PlayerController(player_repository)
 
@@ -42,8 +48,11 @@ def main():
 
     player_view = PlayerView()
     match_view = MatchView()
+    tournament_view = TournamentView()
 
     menu_global(
+        tournament_controller,
+        tournament_view,
         player_controller,
         player_view,
         match_controller,

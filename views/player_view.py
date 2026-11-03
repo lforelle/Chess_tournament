@@ -9,9 +9,19 @@ class PlayerView:
             print("Aucun joueur enregistré.")
             return
 
-        number = 1
-        print("Joueur n° | Nom | Prénom | Date Naissance | CNID")
-        for player in players:
-            print(f"{number} | ", end="")
-            print(player)
-            number += 1
+        print(
+            f"{'N°':<3}| "
+            f"{'Nom':<16}| "
+            f"{'Prénom':<16}| "
+            f"{'Naissance':<11}| CNID"
+        )
+        print("-" * 61)
+
+        for number, player in enumerate(players, start=1):
+            print(
+                f"{number:<3}| "
+                f"{player.lastname:<16}| "
+                f"{player.firstname:<16}| "
+                f"{player.birthdate:<11}| "
+                f"{player.cnid:<7}"
+            )
