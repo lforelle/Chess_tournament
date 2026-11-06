@@ -4,19 +4,16 @@ from models.match import Match
 
 
 class MatchController:
-    def __init__(self, repository=None, players=None):
+    def __init__(self, tournament, repository=None):
+        self.tournament = tournament
         self.repository = repository
-        self.rounds = (
-            repository.load_all(players or [])
-            if repository
-            else []
-        )
+        self.rounds = tournament.rounds
 
     def get_rounds(self):
         return self.rounds
 
     def create_match(self, round_index, player1, player2):
-        """Crée une rencontre dans un tour."""
+        """Create a match in a round."""
 
         if not 0 <= round_index < len(self.rounds):
             return None
@@ -29,7 +26,7 @@ class MatchController:
         if player1.cnid == player2.cnid:
             return None
 
-        # Un joueur ne peut participer qu'à une rencontre par tour.
+        # A player can only attend one match by round
         for match in round_instance.matches:
             match_cnids = {
                 match.players[0][0].cnid,
@@ -42,7 +39,7 @@ class MatchController:
             ):
                 return None
 
-        # Un joueur exempté ne peut pas participer à une rencontre.
+        # A bye player cannot attend a match
         if round_instance.bye_player is not None:
             bye_cnid = round_instance.bye_player.cnid
 
@@ -56,14 +53,14 @@ class MatchController:
         return match
 
     def record_result(self, round_index, match_index, result):
-        """Enregistre le résultat d'une rencontre."""
+        """Record the result of a macth."""
 
         if not 0 <= round_index < len(self.rounds):
             return False
 
         round_instance = self.rounds[round_index]
 
-        # Un tour terminé ne peut plus être modifié.
+        # A round terminated cannot be modified
         if round_instance.end_datetime is not None:
             return False
 
@@ -79,6 +76,6 @@ class MatchController:
         return True
 
     def _save(self):
-        """Sauvegarde les tours dans le dépôt."""
+        """Save the tournament and its rounds."""
         if self.repository:
-            self.repository.save_all(self.rounds)
+            self.repository.save_tournament(self.tournament)

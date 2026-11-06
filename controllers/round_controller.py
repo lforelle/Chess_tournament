@@ -3,17 +3,18 @@ from models.round import Round
 
 
 class RoundController:
-    """Gère la création et la clôture des tours."""
+    """Manage the creation and the closure of the rounds."""
 
     def __init__(
         self,
-        rounds,
+        tournament,
         ranking_controller,
         pairing_service,
         match_controller,
         repository=None,
     ):
-        self.rounds = rounds
+        self.tournament = tournament
+        self.rounds = tournament.rounds
         self.ranking_controller = ranking_controller
         self.pairing_service = pairing_service
         self.match_controller = match_controller
@@ -23,8 +24,9 @@ class RoundController:
         return self.rounds
 
     def _save(self):
+        """Save the tournament and its rounds."""
         if self.repository:
-            self.repository.save_all(self.rounds)
+            self.repository.save_tournament(self.tournament)
 
     def create_round(self):
         round_number = len(self.rounds) + 1
@@ -53,14 +55,18 @@ class RoundController:
         return True
 
     def generate_next_round(self, players):
-        # Le tour précédent doit être terminé.
+        # Create the next round of the tournament if <= number of rounds requested
+        if len(self.rounds) >= self.tournament.number_of_rounds:
+            return None
+
+        # The previous round must be finished.
         if self.rounds and self.rounds[-1].end_datetime is None:
             return None
 
         if len(players) < 2:
             return None
 
-        # Tirage aléatoire au premier tour.
+        # Random players choice on the first round.
         if not self.rounds:
             ranked_players = list(players)
             random.shuffle(ranked_players)
@@ -69,7 +75,7 @@ class RoundController:
 
         bye_player = None
 
-        # Si le nombre de joueurs est impair, choisir un exempté.
+        # If the number of players is odd, then choose a bye player.
         if len(ranked_players) % 2 == 1:
             eligible_players = [
                 player
@@ -98,7 +104,7 @@ class RoundController:
             round_instance.set_bye_player(bye_player)
 
         for player1, player2 in pairings:
-            # Déterminer aléatoirement les blancs (1ere position) et les noirs.
+            # Randomly fix white (first position) and black players.
             if random.choice([True, False]):
                 player1, player2 = player2, player1
 
@@ -109,10 +115,13 @@ class RoundController:
             )
 
             if match is None:
-                # Annuler le tour si une rencontre échoue.
+                # Cancel the round if a match fails.
                 self.rounds.pop()
                 self._save()
                 return None
+
+        # Update the number of current round.
+        self.tournament.current_round = len(self.rounds)
 
         self._save()
         return round_instance

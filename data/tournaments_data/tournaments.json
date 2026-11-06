@@ -5,17 +5,116 @@
         "start_date": "2026-10-20T00:00:00",
         "end_date": "2026-10-22T00:00:00",
         "number_of_rounds": 4,
-        "current_round": 0,
-        "description": "zrthr gtr get"
+        "current_round": 1,
+        "description": "zrthr gtr get",
+        "players": [
+            "AB34567",
+            "ST12345",
+            "UV23456",
+            "MN12345"
+        ],
+        "rounds": [
+            {
+                "name": "Tour 1",
+                "start_datetime": "2026-11-04T17:09:52.450427",
+                "end_datetime": null,
+                "bye_player_cnid": null,
+                "matches": [
+                    {
+                        "players": [
+                            {
+                                "cnid": "AB34567",
+                                "score": 1
+                            },
+                            {
+                                "cnid": "ST12345",
+                                "score": 0
+                            }
+                        ],
+                        "result": "1-0"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "MN12345",
+                                "score": 1
+                            },
+                            {
+                                "cnid": "UV23456",
+                                "score": 0
+                            }
+                        ],
+                        "result": "1-0"
+                    }
+                ]
+            }
+        ]
     },
     {
-        "name": "chesterton",
+        "name": "Chesterton",
         "place": "Paris",
-        "start_date": "2026-02-10T00:00:00",
+        "start_date": "2026-02-11T00:00:00",
         "end_date": "2026-02-12T00:00:00",
-        "number_of_rounds": 7,
-        "current_round": 0,
-        "description": "sh seg sdgbsdr g vscvs et svczercv"
+        "number_of_rounds": 3,
+        "current_round": 1,
+        "description": "Test modif",
+        "players": [
+            "CD78901",
+            "QR76543",
+            "MN12345",
+            "XY12345",
+            "AZ98765",
+            "ST12345"
+        ],
+        "rounds": [
+            {
+                "name": "Tour 1",
+                "start_datetime": "2026-11-04T17:07:53.057219",
+                "end_datetime": "2026-11-04T17:08:39.216153",
+                "bye_player_cnid": null,
+                "matches": [
+                    {
+                        "players": [
+                            {
+                                "cnid": "AZ98765",
+                                "score": 1
+                            },
+                            {
+                                "cnid": "ST12345",
+                                "score": 0
+                            }
+                        ],
+                        "result": "1-0"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "MN12345",
+                                "score": 1
+                            },
+                            {
+                                "cnid": "QR76543",
+                                "score": 0
+                            }
+                        ],
+                        "result": "1-0"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "XY12345",
+                                "score": 0
+                            },
+                            {
+                                "cnid": "CD78901",
+                                "score": 1
+                            }
+                        ],
+                        "result": "0-1"
+                    }
+                ]
+            }
+        ]
     },
     {
         "name": "kingchess",
@@ -24,6 +123,105 @@
         "end_date": "2025-05-16T00:00:00",
         "number_of_rounds": 9,
         "current_round": 0,
-        "description": "dghfners sdgb dsg sdbg gbsdfbg"
+        "description": "dghfners sdgb dsg sdbg gbsdfbg",
+        "players": [],
+        "rounds": []
+    },
+    {
+        "name": "Brusschess",
+        "place": "Bruxelle",
+        "start_date": "2025-02-04T00:00:00",
+        "end_date": "2025-02-06T00:00:00",
+        "number_of_rounds": 4,
+        "current_round": 1,
+        "description": "tournois annuel nationnal belge",
+        "players": [
+            "CD78901",
+            "AZ98765",
+            "QR76543",
+            "XY12345",
+            "PQ98765",
+            "BC56789",
+            "XY23456",
+            "MN12345",
+            "UV23456",
+            "ST12345",
+            "AB34567"
+        ],
+        "rounds": [
+            {
+                "name": "Tour 1",
+                "start_datetime": "2026-11-06T09:12:15.510516",
+                "end_datetime": "2026-11-06T09:13:36.852077",
+                "bye_player_cnid": "ST12345",
+                "matches": [
+                    {
+                        "players": [
+                            {
+                                "cnid": "QR76543",
+                                "score": 1
+                            },
+                            {
+                                "cnid": "AZ98765",
+                                "score": 0
+                            }
+                        ],
+                        "result": "1-0"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "BC56789",
+                                "score": 0
+                            },
+                            {
+                                "cnid": "XY12345",
+                                "score": 1
+                            }
+                        ],
+                        "result": "0-1"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "MN12345",
+                                "score": 0
+                            },
+                            {
+                                "cnid": "UV23456",
+                                "score": 1
+                            }
+                        ],
+                        "result": "0-1"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "CD78901",
+                                "score": 1
+                            },
+                            {
+                                "cnid": "AB34567",
+                                "score": 0
+                            }
+                        ],
+                        "result": "1-0"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "PQ98765",
+                                "score": 1
+                            },
+                            {
+                                "cnid": "XY23456",
+                                "score": 0
+                            }
+                        ],
+                        "result": "1-0"
+                    }
+                ]
+            }
+        ]
     }
 ]

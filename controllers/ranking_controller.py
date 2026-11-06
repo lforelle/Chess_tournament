@@ -2,13 +2,14 @@ import random
 
 
 class RankingController:
-    """Gère les points et le classement des joueurs."""
+    """Manage the points and the ranking of players."""
 
     def __init__(self, rounds):
         self.rounds = rounds
 
     def get_player_points(self, player):
-        """Calcule le total des points d'un joueur."""
+        """Calculate the global points of a player."""
+
         total_points = 0
 
         for round_instance in self.rounds:
@@ -20,7 +21,7 @@ class RankingController:
                     if match_player.cnid == player.cnid:
                         total_points += score
 
-            # Un joueur exempté reçoit un point.
+            # A bye player receive 1 point.
             if (
                 round_instance.bye_player is not None
                 and round_instance.bye_player.cnid == player.cnid
@@ -30,7 +31,9 @@ class RankingController:
         return total_points
 
     def rank_players(self, players):
-        """Trie les joueurs par points, avec un ordre aléatoire en cas d'égalité."""
+        """Prepare the coupling of the next round
+        Sort the players by points, with a random order if equal."""
+
         players_by_score = {}
 
         for player in players:
@@ -51,7 +54,8 @@ class RankingController:
         return ranked_players
 
     def get_ranking(self, players):
-        """Renvoie les joueurs et leurs points, triés par points puis par ordre alphabétique."""
+        """Return the players and their points, sorted by points then by alphabetical order."""
+
         ranking = []
 
         for player in players:
