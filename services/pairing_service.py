@@ -3,13 +3,13 @@ import random
 
 
 class PairingService:
-    """Gère l'appairage des joueurs et les exemptions."""
+    """Manage the players pairing and the byes."""
 
     def __init__(self, rounds):
         self.rounds = rounds
 
     def get_previous_opponents(self, player):
-        """Retourne les adversaires déjà rencontrés par un joueur."""
+        """Return the opponents already matched by a player."""
         opponents = set()
 
         for round_instance in self.rounds:
@@ -25,7 +25,7 @@ class PairingService:
         return opponents
 
     def has_received_bye(self, player):
-        """Vérifie si un joueur a déjà bénéficié d'une exemption."""
+        """Check if a player has already had a bye."""
         for round_instance in self.rounds:
             if (
                 round_instance.bye_player is not None
@@ -36,7 +36,8 @@ class PairingService:
         return False
 
     def _find_pairings(self, players, allow_rematches):
-        """Recherche des paires complètes en évitant les revanches si possible."""
+        """Search for complete coupling avoiding revenges if possible."""
+
         if not players:
             return []
 
@@ -46,7 +47,7 @@ class PairingService:
         candidates = players[1:]
         random.shuffle(candidates)
 
-        # Privilégier les joueurs qui ne se sont pas encore affrontés.
+        # Favour the players who has not faced off.
         candidates.sort(
             key=lambda player: player.cnid in previous_opponents
         )
@@ -77,7 +78,8 @@ class PairingService:
         return None
 
     def find_valid_pairings(self, players):
-        """Évite les revanches, sauf si elles sont inévitables."""
+        """Avoid revenge, except if unavoidable."""
+
         pairings = self._find_pairings(
             players,
             allow_rematches=False,

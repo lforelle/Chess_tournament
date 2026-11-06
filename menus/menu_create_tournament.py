@@ -8,7 +8,7 @@ def menu_create_tournament(tournament_controller, tournament_view):
     name = input("Nom du tournoi: ").strip()
     place = input("Lieu d'organisation du tournoi: ").strip()
 
-    # Saisie de la date du debut
+    # Input the start date of the tournament
     while True:
         try:
             start_date_input = input("Date de debut du tournoi (JJ/MM/AAAA): ").strip()
@@ -18,7 +18,7 @@ def menu_create_tournament(tournament_controller, tournament_view):
         except ValueError:
             print("Erreur : saisissez une date valide au format JJ/MM/AAAA !")
 
-    # Saisie de la date de fin
+    # Input the end date of the tournament
     while True:
         try:
             end_date_input = input("Date de fin du tournoi (JJ/MM/AAAA): ").strip()
@@ -34,7 +34,7 @@ def menu_create_tournament(tournament_controller, tournament_view):
         except ValueError:
             print("Erreur : saisissez une date valide au format JJ/MM/AAAA !")
 
-    # Saisie du nombre de tours
+    # Input the number of rounds needed for the tournament
     while True:
         number_of_rounds_input = input("Nombre de tours (défaut = 4) : ").strip()
         if not number_of_rounds_input:
@@ -50,10 +50,10 @@ def menu_create_tournament(tournament_controller, tournament_view):
         except ValueError:
             print("Erreur : saisissez un nombre entier !")
 
-    # Saisie de la description
+    # Optional description
     description = input("Description : ").strip()
 
-    # Création du tournoi
+    # Tournament object creation
     tournament = tournament_controller.create_tournament(
         name=name,
         place=place,

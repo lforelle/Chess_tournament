@@ -1,4 +1,4 @@
-"""Define the player view."""
+"""Define the tournament view."""
 
 
 class TournamentView:
@@ -15,7 +15,8 @@ class TournamentView:
             f"{'Lieu':<15}| "
             f"{'Date début':<11}| "
             f"{'Date fin':<11}| "
-            f"{'Nb tours':<9}| Description"
+            f"{'Nb tours':<9}| ",
+            f"{'Tour actuel':<11}| Description"
         )
         print("-" * 130)
 
@@ -37,5 +38,6 @@ class TournamentView:
                 f"{start_date:<11}| "
                 f"{end_date:<11}| "
                 f"{tournament.number_of_rounds:<9}| "
+                f"{tournament.current_round:<11}| "
                 f"{tournament.description}"
             )

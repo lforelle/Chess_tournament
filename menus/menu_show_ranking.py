@@ -1,5 +1,5 @@
-def menu_show_ranking(player_controller, ranking_controller, match_view):
-    players = player_controller.get_players()
+def menu_show_ranking(tournament, ranking_controller, match_view):
+    players = tournament.players
 
     if not players:
         print("\nAucun joueur n'est enregistré.")

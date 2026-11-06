@@ -31,9 +31,18 @@ python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
-## Lancer le programme
+## Configuration et lancement
 
-Depuis la racine du projet, avec l’environnement virtuel activé :
+L’application est initialisée dans `main.py`. Aucun fichier de configuration externe n’est chargé au démarrage : les composants sont assemblés directement dans la fonction `main()`.
+
+Au lancement, l’application :
+
+1. crée le dépôt et le contrôleur des joueurs, puis récupère la liste des joueurs ;
+2. crée le dépôt et le contrôleur des tournois en leur transmettant cette liste ;
+3. initialise les vues des joueurs et des tournois ;
+4. lance le menu principal avec ces contrôleurs et ces vues.
+
+Pour lancer l’application depuis le répertoire du projet :
 
 ```bash
 python main.py
