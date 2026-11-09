@@ -2,7 +2,7 @@ from views.player_view import sort_players_by_name
 
 
 def menu_register_players(tournament, player_controller, tournament_controller):
-    """Permet d'inscrire des joueurs à un tournoi."""
+    """Allow to register players in a tournament."""
 
     players = sort_players_by_name(player_controller.get_active_players())
 
@@ -11,7 +11,7 @@ def menu_register_players(tournament, player_controller, tournament_controller):
         return
 
     while True:
-        # Récupérer les joueurs non inscrits
+        # Recover the players not registered to the tournament
         available_players = [
             player for player in players
             if all(

@@ -1,12 +1,12 @@
 [
     {
-        "name": "Masterclass",
+        "name": "Chess In Lyon 2026",
         "place": "Lyon",
         "start_date": "2026-10-20T00:00:00",
         "end_date": "2026-10-22T00:00:00",
         "number_of_rounds": 4,
-        "current_round": 1,
-        "description": "zrthr gtr get",
+        "current_round": 2,
+        "description": "34e tournoi philanthropique",
         "players": [
             "AB34567",
             "ST12345",
@@ -17,7 +17,7 @@
             {
                 "name": "Tour 1",
                 "start_datetime": "2026-11-04T17:09:52.450427",
-                "end_datetime": null,
+                "end_datetime": "2026-11-09T11:32:02.099703",
                 "bye_player_cnid": null,
                 "matches": [
                     {
@@ -47,17 +47,51 @@
                         "result": "1-0"
                     }
                 ]
+            },
+            {
+                "name": "Tour 2",
+                "start_datetime": "2026-11-09T11:32:31.843752",
+                "end_datetime": "2026-11-09T11:32:47.845188",
+                "bye_player_cnid": null,
+                "matches": [
+                    {
+                        "players": [
+                            {
+                                "cnid": "AB34567",
+                                "score": 1
+                            },
+                            {
+                                "cnid": "MN12345",
+                                "score": 0
+                            }
+                        ],
+                        "result": "1-0"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "UV23456",
+                                "score": 0.5
+                            },
+                            {
+                                "cnid": "ST12345",
+                                "score": 0.5
+                            }
+                        ],
+                        "result": "1/2-1/2"
+                    }
+                ]
             }
         ]
     },
     {
-        "name": "Chesterton",
-        "place": "Paris",
+        "name": "La Dame Noire 2026",
+        "place": "Montigny",
         "start_date": "2026-02-11T00:00:00",
         "end_date": "2026-02-12T00:00:00",
         "number_of_rounds": 3,
         "current_round": 1,
-        "description": "Test modif",
+        "description": "Championnat interne au club de Montigny",
         "players": [
             "CD78901",
             "QR76543",
@@ -117,24 +151,110 @@
         ]
     },
     {
-        "name": "kingchess",
-        "place": "Nancy",
+        "name": "Master A 2025",
+        "place": "Frejus",
         "start_date": "2025-05-14T00:00:00",
         "end_date": "2025-05-16T00:00:00",
         "number_of_rounds": 9,
-        "current_round": 0,
-        "description": "dghfners sdgb dsg sdbg gbsdfbg",
-        "players": [],
-        "rounds": []
+        "current_round": 1,
+        "description": "Tournoi de niveau Master A departemental",
+        "players": [
+            "UV23456",
+            "PQ98765",
+            "ST12345",
+            "XY23456",
+            "AZ98765",
+            "AB34567",
+            "CD78901",
+            "MN12345",
+            "XY12345",
+            "QR76543",
+            "BC56789"
+        ],
+        "rounds": [
+            {
+                "name": "Tour 1",
+                "start_datetime": "2026-11-09T11:56:49.831601",
+                "end_datetime": "2026-11-09T11:57:28.609905",
+                "bye_player_cnid": "XY23456",
+                "matches": [
+                    {
+                        "players": [
+                            {
+                                "cnid": "AZ98765",
+                                "score": 0
+                            },
+                            {
+                                "cnid": "PQ98765",
+                                "score": 1
+                            }
+                        ],
+                        "result": "0-1"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "UV23456",
+                                "score": 1
+                            },
+                            {
+                                "cnid": "QR76543",
+                                "score": 0
+                            }
+                        ],
+                        "result": "1-0"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "AB34567",
+                                "score": 1
+                            },
+                            {
+                                "cnid": "CD78901",
+                                "score": 0
+                            }
+                        ],
+                        "result": "1-0"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "XY12345",
+                                "score": 1
+                            },
+                            {
+                                "cnid": "MN12345",
+                                "score": 0
+                            }
+                        ],
+                        "result": "1-0"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "ST12345",
+                                "score": 1
+                            },
+                            {
+                                "cnid": "BC56789",
+                                "score": 0
+                            }
+                        ],
+                        "result": "1-0"
+                    }
+                ]
+            }
+        ]
     },
     {
-        "name": "Brusschess",
-        "place": "Bruxelle",
+        "name": "Open Interchess 2025",
+        "place": "Paris",
         "start_date": "2025-02-04T00:00:00",
         "end_date": "2025-02-06T00:00:00",
         "number_of_rounds": 4,
         "current_round": 1,
-        "description": "tournois annuel nationnal belge",
+        "description": "tournois annuel internationnal",
         "players": [
             "CD78901",
             "AZ98765",

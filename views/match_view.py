@@ -1,4 +1,4 @@
-"""Display the matches."""
+"""Display the matches and tournament ranking."""
 
 
 class MatchView:
@@ -36,3 +36,60 @@ class MatchView:
             )
 
         print("======================================================\n")
+
+    def display_tournament_rounds(self, rounds):
+        """Display all the rounds and their matches."""
+
+        print("\n========== HISTORIQUE DU TOURNOI ==========")
+
+        if not rounds:
+            print("Aucun tour n'a encore été créé.")
+            return
+
+        for round_instance in rounds:
+            print(f"\n--- {round_instance.name} ---")
+
+            if round_instance.start_datetime is not None:
+                print(
+                    "Début : "
+                    f"{round_instance.start_datetime.strftime('%d/%m/%Y %H:%M')}"
+                )
+
+            if round_instance.end_datetime is not None:
+                print(
+                    "Fin : "
+                    f"{round_instance.end_datetime.strftime('%d/%m/%Y %H:%M')}"
+                )
+                print("Statut : Terminé")
+            else:
+                print("Statut : En cours")
+
+            if round_instance.bye_player is not None:
+                player = round_instance.bye_player
+                print(
+                    f"Joueur exempté : "
+                    f"{player.firstname} {player.lastname}"
+                )
+
+            if not round_instance.matches:
+                print("Aucune rencontre dans ce tour.")
+                continue
+
+            print("\nRencontres :")
+
+            for number, match in enumerate(round_instance.matches, start=1):
+                player1 = match.players[0][0]
+                player2 = match.players[1][0]
+
+                if match.result is None:
+                    result = "Non joué"
+                else:
+                    result = match.result
+
+                print(
+                    f"  Match {number} : "
+                    f"{player1.firstname} {player1.lastname} "
+                    f"vs "
+                    f"{player2.firstname} {player2.lastname} "
+                    f"| Résultat : {result}"
+                )

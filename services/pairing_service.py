@@ -1,4 +1,4 @@
-"""Services regroupant les algorithmes métier."""
+"""Services gathering the business logic algorithms."""
 import random
 
 

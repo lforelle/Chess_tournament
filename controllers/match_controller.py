@@ -1,4 +1,4 @@
-"""Gère la création des rencontres et leurs résultats."""
+"""Manage the creation of matches and their results."""
 
 from models.match import Match
 

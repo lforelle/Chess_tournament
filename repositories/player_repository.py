@@ -1,3 +1,5 @@
+"""Repository for managing player data in a JSON file."""
+
 import json
 from pathlib import Path
 from models.player import Player

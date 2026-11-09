@@ -1,14 +1,15 @@
-"""Define the player view."""
+"""Define the player view class and functions for displaying player information."""
+
+
+def get_player_sort_key(player):
+    return (
+        player.lastname.casefold(),
+        player.firstname.casefold(),
+    )
 
 
 def sort_players_by_name(players):
-    return sorted(
-        players,
-        key=lambda player: (
-            player.lastname.casefold(),
-            player.firstname.casefold(),
-        ),
-    )
+    return sorted(players, key=get_player_sort_key)
 
 
 class PlayerView:
@@ -36,4 +37,17 @@ class PlayerView:
                 f"{player.birthdate:<11}| "
                 f"{player.cnid:<7}| "
                 f"{'Actif' if player.active else 'Inactif'}"
+            )
+
+    def display_tournament_players(self, players):
+        print("\n--- Joueurs inscrits au tournoi ---")
+
+        if not players:
+            print("Aucun joueur inscrit à ce tournoi.")
+            return
+
+        for number, player in enumerate(sort_players_by_name(players), start=1):
+            print(
+                f"{number:>3}. "
+                f"{player.lastname} {player.firstname}"
             )

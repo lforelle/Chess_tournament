@@ -1,3 +1,5 @@
+"""Repository for managing tournament data in a JSON file."""
+
 import json
 from pathlib import Path
 from datetime import datetime
@@ -65,7 +67,7 @@ class TournamentRepository:
         self._write_file()
 
     def save_tournament(self, tournament):
-        """Sauve a single tournament."""
+        """Save a single tournament."""
 
         if tournament not in self.tournaments:
             self.tournaments.append(tournament)

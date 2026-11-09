@@ -9,8 +9,7 @@ def menu_update_scores(match_controller):
     if round_instance is None:
         return
 
-    # Affichage des rencontres
-    # on affiche le matches du tour en liste avec index pour chaque match
+    # Display the matches of the last round with their current results
     for match_index, match in enumerate(round_instance.matches, start=1):
         white = match.players[0][0]
         black = match.players[1][0]
@@ -20,7 +19,7 @@ def menu_update_scores(match_controller):
         print(f"Noirs  : {black.firstname} {black.lastname}")
         print(f"Résultat actuel : {match.result}")
 
-    # Sélection de la rencontre
+    # Selection of the match
     while True:
         try:
             choice = int(input(
@@ -38,10 +37,10 @@ def menu_update_scores(match_controller):
         except ValueError:
             print("Valeur non numérique saisie !")
 
-    # Récupération de la rencontre sélectionnée
+    # Recovering the selected match
     match_index = choice - 1
 
-    # Saisie du nouveau résultat
+    # Input of the new result
     print("\n1. Victoire des blancs (1-0)")
     print("2. Match nul (1/2-1/2)")
     print("3. Victoire des noirs (0-1)")

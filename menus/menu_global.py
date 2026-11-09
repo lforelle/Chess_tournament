@@ -26,7 +26,7 @@ def menu_global(
         print("\n   --------- Joueurs ----------")
         print("   5. Créer un joueur")
         print("   6. Modifier un joueur")
-        print("   7. Supprimer un joueur")
+        print("   7. Désactiver un joueur")
         print("   8. Afficher les joueurs")
 
         print("\n   0. Quitter")
@@ -75,6 +75,7 @@ def menu_global(
                 tournament_repository=tournament_controller.repository,
                 player_controller=player_controller,
                 tournament_controller=tournament_controller,
+                player_view=player_view,
                 match_view=None,
             )
 

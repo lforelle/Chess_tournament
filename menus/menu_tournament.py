@@ -20,12 +20,13 @@ def menu_tournament(
     tournament_repository,
     player_controller,
     tournament_controller,
+    player_view,
     match_view=None,
 ):
-    # Les tours propres à ce tournoi.
+    # The rounds specific to this tournament.
     rounds = tournament.rounds
 
-    # Création des composants propres au tournoi.
+    # Creation of the components specific to the tournament.
     match_controller = MatchController(
         tournament=tournament,
         repository=tournament_repository,
@@ -54,7 +55,9 @@ def menu_tournament(
         print("   3. Saisir les résultats")
         print("   4. Modifier les résultats")
         print("   5. Terminer le dernier tour")
-        print("   6. Afficher le classement")
+        print("   6. Afficher les joueurs inscrits au tournoi")
+        print("   7. Afficher le classement")
+        print("   8. Afficher tous les tours et leurs rencontres")
         print("\n   0. Retour au menu principal")
 
         choice = input("\nVotre choix : ").strip()
@@ -90,11 +93,17 @@ def menu_tournament(
                     )
 
         elif choice == "6":
+            player_view.display_tournament_players(tournament.players)
+
+        elif choice == "7":
             menu_show_ranking(
                 tournament,
                 ranking_controller,
                 match_view,
             )
+
+        elif choice == "8":
+            match_view.display_tournament_rounds(rounds)
 
         elif choice == "0":
             print("\nRetour au menu principal.")
