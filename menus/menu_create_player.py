@@ -47,5 +47,9 @@ def menu_create_player(player_controller, player_view):
         cnid,
     )
 
+    if player is None:
+        print("Erreur : ce CNID est déjà attribué à un autre joueur.")
+        return
+
     print(f"\n--- Joueur créé ---\n{player}\n")
     player_view.display_players(player_controller.get_players())

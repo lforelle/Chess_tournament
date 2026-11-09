@@ -7,7 +7,7 @@ from menus.menu_create_player import (
 )
 
 
-def menu_update_player(player_controller, player_view):
+def menu_update_player(player_controller, tournament_controller, player_view):
     players_to_update = player_controller.get_players()
     player_view.display_players(players_to_update)
 
@@ -35,16 +35,24 @@ def menu_update_player(player_controller, player_view):
     birthdate = ask_birthdate()
     cnid = ask_cnid()
 
+    if player_controller.cnid_is_used(cnid, exclude_index=index):
+        print("Erreur : ce CNID est déjà attribué à un autre joueur.")
+        return
+
     is_updated = player_controller.update_player(
         index,
         lastname,
         firstname,
         birthdate,
         cnid,
+        persist=False,
     )
 
     if is_updated:
         print("\nJoueur modifié avec succès.")
+        tournament_controller.validate_player_references()
+        player_controller.save_all()
+        tournament_controller.save_all()
         player_view.display_players(player_controller.get_players())
     else:
         print("\nErreur : la modification du joueur a échoué.")

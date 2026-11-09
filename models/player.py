@@ -8,11 +8,12 @@ class Player:
     (format: 'AB12345') that is manually entered on registration.
     """
 
-    def __init__(self, lastname, firstname, birthdate, cnid):
+    def __init__(self, lastname, firstname, birthdate, cnid, active=True):
         self.lastname = lastname
         self.firstname = firstname
         self.birthdate = birthdate
         self.cnid = cnid
+        self.active = active
 
     def __str__(self):
         return (
@@ -31,4 +32,5 @@ class Player:
             "firstname": self.firstname,
             "birthdate": self.birthdate,
             "cnid": self.cnid,
+            "active": self.active,
         }
