@@ -51,6 +51,23 @@ python main.py
 Le menu principal permet d’accéder aux fonctions de gestion disponibles dans
 l’application.
 
+## Rapport Flake8
+
+Depuis la racine du projet, activez l’environnement virtuel puis générez le
+rapport HTML avec :
+
+```bash
+source .venv/bin/activate
+python -m flake8 \
+  --format=html \
+  --htmldir=./flake8_rapport \
+  --exclude=.venv,env,old,.git,__pycache__,flake8_rapport
+```
+
+Le rapport est créé dans `flake8_rapport/`. Ouvrez `flake8_rapport/index.html` dans
+un navigateur pour consulter les résultats. Relancez la commande pour générer
+un rapport actualisé après vos modifications.
+
 ## Fonctionnalités documentées
 
 ### Joueurs

@@ -14,7 +14,7 @@ class MatchView:
             print(f"{number} | ", end="")
             print(match)
             number += 1
-    
+
     def display_ranking(self, ranking):
         """Display the tournament ranking."""
 

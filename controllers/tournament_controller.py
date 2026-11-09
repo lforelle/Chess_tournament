@@ -5,10 +5,12 @@ from models.tournament import Tournament
 class TournamentController:
     """Manage the creation and the closure of tournaments."""
 
-    def __init__(self, repository, players):
+    def __init__(self, repository, player_controller):
         self.repository = repository
-        self.players = players
-        self.tournaments = self.repository.load_all(players)
+        self.player_controller = player_controller
+        self.tournaments = self.repository.load_all(
+            player_controller.get_players()
+        )
 
     def create_tournament(self, name, place, start_date, end_date, description, number_of_rounds=4):
         tournament = Tournament(
@@ -20,15 +22,21 @@ class TournamentController:
             number_of_rounds=number_of_rounds
         )
         self.tournaments.append(tournament)
-        self.repository.save_all(self.tournaments)
+        self.save_all()
 
         return tournament
 
     def get_tournaments(self):
-        return self.tournaments
+        return tuple(self.tournaments)
 
     def register_player(self, tournament, player):
         """Register a player in the tournament."""
+
+        if not player.active or not any(
+            registered_player is player
+            for registered_player in self.player_controller.get_players()
+        ):
+            return False
 
         # check if the player is already registered
         for registered_player in tournament.players:
@@ -42,7 +50,7 @@ class TournamentController:
         if tournament not in self.tournaments:
             self.tournaments.append(tournament)
 
-        self.repository.save_all(self.tournaments)
+        self.save_all()
 
         return True
 
@@ -74,6 +82,36 @@ class TournamentController:
             setattr(tournament, field, value)
 
         # Save all the tournaments
-        self.repository.save_all(self.tournaments)
+        self.save_all()
 
         return tournament
+
+    def validate_player_references(self):
+        players = self.player_controller.get_players()
+        players_by_cnid = {player.cnid: player for player in players}
+
+        if len(players_by_cnid) != len(players):
+            raise ValueError("Des CNID sont attribués à plusieurs joueurs.")
+
+        for tournament in self.tournaments:
+            references = list(tournament.players)
+
+            for round_instance in tournament.rounds:
+                if round_instance.bye_player is not None:
+                    references.append(round_instance.bye_player)
+
+                for match in round_instance.matches:
+                    references.extend(
+                        player_score[0] for player_score in match.players
+                    )
+
+            for player in references:
+                if players_by_cnid.get(player.cnid) is not player:
+                    raise ValueError(
+                        f"Référence joueur invalide dans {tournament.name} : "
+                        f"{player.cnid}"
+                    )
+
+    def save_all(self):
+        self.validate_player_references()
+        self.repository.save_all(self.tournaments)

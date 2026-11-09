@@ -14,13 +14,11 @@ def main():
     player_repository = PlayerRepository()
     player_controller = PlayerController(player_repository)
 
-    players = player_controller.get_players()
-
     # Tournaments management
     tournament_repository = TournamentRepository()
     tournament_controller = TournamentController(
         tournament_repository,
-        players
+        player_controller,
     )
 
     # Views

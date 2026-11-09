@@ -2,11 +2,11 @@
 
 
 def menu_remove_player(player_controller, player_view):
-    players = player_controller.get_players()
+    players = player_controller.get_active_players()
     player_view.display_players(players)
 
     if not players:
-        print("Erreur: Aucun joueur à supprimer.")
+        print("Erreur : aucun joueur actif à désactiver.")
         return
 
     try:
@@ -25,15 +25,16 @@ def menu_remove_player(player_controller, player_view):
 
     print("\n--- Ligne à supprimer ---")
     confirmation = input(
-        "Etes-vous certain de vouloir supprimer ce joueur (o/n) : "
+        "Etes-vous certain de vouloir désactiver ce joueur (o/n) : "
         ).strip().lower()
     if confirmation != "o":
-        print(f"Suppression du joueur n°{index_to_remove} annulée.")
+        print(f"Désactivation du joueur n°{player_number} annulée.")
         return
 
-    is_removed = player_controller.remove_player(index_to_remove)
-    if is_removed:
-        print(f"\nJoueur n°{index_to_remove} supprimé.\n")
+    player = players[index_to_remove]
+    is_deactivated = player_controller.deactivate_player(player.cnid)
+    if is_deactivated:
+        print(f"\nJoueur n°{player_number} désactivé.\n")
         player_view.display_players(player_controller.get_players())
     else:
-        print("\nErreur : la suppression du joueur a échoué.")
+        print("\nErreur : la désactivation du joueur a échoué.")

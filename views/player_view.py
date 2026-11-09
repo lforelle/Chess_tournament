@@ -13,9 +13,10 @@ class PlayerView:
             f"{'N°':<3}| "
             f"{'Nom':<16}| "
             f"{'Prénom':<16}| "
-            f"{'Naissance':<11}| CNID"
+            f"{'Naissance':<11}| "
+            f"{'CNID':<7}| Statut"
         )
-        print("-" * 61)
+        print("-" * 74)
 
         for number, player in enumerate(players, start=1):
             print(
@@ -23,5 +24,6 @@ class PlayerView:
                 f"{player.lastname:<16}| "
                 f"{player.firstname:<16}| "
                 f"{player.birthdate:<11}| "
-                f"{player.cnid:<7}"
+                f"{player.cnid:<7}| "
+                f"{'Actif' if player.active else 'Inactif'}"
             )

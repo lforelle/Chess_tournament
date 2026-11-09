@@ -3,10 +3,10 @@
 def menu_register_players(tournament, player_controller, tournament_controller):
     """Permet d'inscrire des joueurs à un tournoi."""
 
-    players = player_controller.get_players()
+    players = player_controller.get_active_players()
 
     if not players:
-        print("\nAucun joueur n'est enregistré dans l'application.")
+        print("\nAucun joueur actif n'est enregistré dans l'application.")
         return
 
     while True:

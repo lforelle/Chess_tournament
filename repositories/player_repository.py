@@ -23,6 +23,7 @@ class PlayerRepository:
                 data["firstname"],
                 data["birthdate"],
                 data["cnid"],
+                data.get("active", True),
             )
             players.append(player)
 

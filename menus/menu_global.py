@@ -82,7 +82,7 @@ def menu_global(
             menu_create_player(player_controller, player_view)
 
         elif choice == "6":
-            menu_update_player(player_controller, player_view)
+            menu_update_player(player_controller, tournament_controller, player_view)
 
         elif choice == "7":
             menu_remove_player(player_controller, player_view)
