@@ -6,7 +6,7 @@ from models.player import Player
 class PlayerRepository:
     def __init__(self):
         project_root = Path(__file__).resolve().parents[1]
-        self.file_path = project_root / "data" / "players_data" / "players.json"
+        self.file_path = project_root / "data" / "tournaments" / "players.json"
 
     def load_all(self):
         if not self.file_path.exists() or self.file_path.stat().st_size == 0:

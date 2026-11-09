@@ -5,10 +5,13 @@ from menus.menu_create_player import (
     ask_birthdate,
     ask_cnid,
 )
+from views.player_view import sort_players_by_name
 
 
 def menu_update_player(player_controller, tournament_controller, player_view):
-    players_to_update = player_controller.get_players()
+    players_to_update = sort_players_by_name(
+        player_controller.get_players()
+    )
     player_view.display_players(players_to_update)
 
     if not players_to_update:
@@ -23,11 +26,18 @@ def menu_update_player(player_controller, tournament_controller, player_view):
         print("Erreur : saisissez un numéro valide.")
         return
 
-    index = player_index_number - 1
+    displayed_index = player_index_number - 1
 
-    if not 0 <= index < len(players_to_update):
+    if not 0 <= displayed_index < len(players_to_update):
         print("Erreur : ce numéro de joueur n'existe pas.")
         return
+
+    selected_player = players_to_update[displayed_index]
+    index = next(
+        index
+        for index, player in enumerate(player_controller.get_players())
+        if player is selected_player
+    )
 
     print("\n--- Nouvelles informations ---")
     lastname = ask_name("Nom : ")

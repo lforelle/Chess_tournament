@@ -1,8 +1,10 @@
 """Remove players from data."""
 
+from views.player_view import sort_players_by_name
+
 
 def menu_remove_player(player_controller, player_view):
-    players = player_controller.get_active_players()
+    players = sort_players_by_name(player_controller.get_active_players())
     player_view.display_players(players)
 
     if not players:

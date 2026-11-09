@@ -1,6 +1,16 @@
 """Define the player view."""
 
 
+def sort_players_by_name(players):
+    return sorted(
+        players,
+        key=lambda player: (
+            player.lastname.casefold(),
+            player.firstname.casefold(),
+        ),
+    )
+
+
 class PlayerView:
     def display_players(self, players):
         print("\n--- Liste des joueurs ---")
@@ -18,7 +28,7 @@ class PlayerView:
         )
         print("-" * 74)
 
-        for number, player in enumerate(players, start=1):
+        for number, player in enumerate(sort_players_by_name(players), start=1):
             print(
                 f"{number:<3}| "
                 f"{player.lastname:<16}| "

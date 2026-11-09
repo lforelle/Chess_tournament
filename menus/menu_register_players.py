@@ -1,9 +1,10 @@
+from views.player_view import sort_players_by_name
 
 
 def menu_register_players(tournament, player_controller, tournament_controller):
     """Permet d'inscrire des joueurs à un tournoi."""
 
-    players = player_controller.get_active_players()
+    players = sort_players_by_name(player_controller.get_active_players())
 
     if not players:
         print("\nAucun joueur actif n'est enregistré dans l'application.")
