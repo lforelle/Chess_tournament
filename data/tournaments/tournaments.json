@@ -5,7 +5,7 @@
         "start_date": "2026-10-20T00:00:00",
         "end_date": "2026-10-22T00:00:00",
         "number_of_rounds": 4,
-        "current_round": 2,
+        "current_round": 3,
         "description": "34e tournoi philanthropique",
         "players": [
             "AB34567",
@@ -79,6 +79,40 @@
                             }
                         ],
                         "result": "1/2-1/2"
+                    }
+                ]
+            },
+            {
+                "name": "Tour 3",
+                "start_datetime": "2026-11-10T11:01:48.468700",
+                "end_datetime": "2026-11-10T11:02:05.479562",
+                "bye_player_cnid": null,
+                "matches": [
+                    {
+                        "players": [
+                            {
+                                "cnid": "UV23456",
+                                "score": 1
+                            },
+                            {
+                                "cnid": "AB34567",
+                                "score": 0
+                            }
+                        ],
+                        "result": "1-0"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "ST12345",
+                                "score": 1
+                            },
+                            {
+                                "cnid": "MN12345",
+                                "score": 0
+                            }
+                        ],
+                        "result": "1-0"
                     }
                 ]
             }
@@ -253,7 +287,7 @@
         "start_date": "2025-02-04T00:00:00",
         "end_date": "2025-02-06T00:00:00",
         "number_of_rounds": 4,
-        "current_round": 1,
+        "current_round": 3,
         "description": "tournois annuel internationnal",
         "players": [
             "CD78901",
@@ -339,6 +373,152 @@
                             }
                         ],
                         "result": "1-0"
+                    }
+                ]
+            },
+            {
+                "name": "Tour 2",
+                "start_datetime": "2026-11-10T10:47:43.416706",
+                "end_datetime": "2026-11-10T10:48:23.657182",
+                "bye_player_cnid": "AZ98765",
+                "matches": [
+                    {
+                        "players": [
+                            {
+                                "cnid": "BC56789",
+                                "score": 1
+                            },
+                            {
+                                "cnid": "PQ98765",
+                                "score": 0
+                            }
+                        ],
+                        "result": "1-0"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "UV23456",
+                                "score": 0
+                            },
+                            {
+                                "cnid": "QR76543",
+                                "score": 1
+                            }
+                        ],
+                        "result": "0-1"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "AB34567",
+                                "score": 1
+                            },
+                            {
+                                "cnid": "XY12345",
+                                "score": 0
+                            }
+                        ],
+                        "result": "1-0"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "MN12345",
+                                "score": 0.5
+                            },
+                            {
+                                "cnid": "ST12345",
+                                "score": 0.5
+                            }
+                        ],
+                        "result": "1/2-1/2"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "XY23456",
+                                "score": 1
+                            },
+                            {
+                                "cnid": "CD78901",
+                                "score": 0
+                            }
+                        ],
+                        "result": "1-0"
+                    }
+                ]
+            },
+            {
+                "name": "Tour 3",
+                "start_datetime": "2026-11-10T11:02:36.213488",
+                "end_datetime": "2026-11-10T11:02:56.182992",
+                "bye_player_cnid": "MN12345",
+                "matches": [
+                    {
+                        "players": [
+                            {
+                                "cnid": "QR76543",
+                                "score": 1
+                            },
+                            {
+                                "cnid": "BC56789",
+                                "score": 0
+                            }
+                        ],
+                        "result": "1-0"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "ST12345",
+                                "score": 0
+                            },
+                            {
+                                "cnid": "AB34567",
+                                "score": 1
+                            }
+                        ],
+                        "result": "0-1"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "XY12345",
+                                "score": 0
+                            },
+                            {
+                                "cnid": "XY23456",
+                                "score": 1
+                            }
+                        ],
+                        "result": "0-1"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "CD78901",
+                                "score": 0
+                            },
+                            {
+                                "cnid": "AZ98765",
+                                "score": 1
+                            }
+                        ],
+                        "result": "0-1"
+                    },
+                    {
+                        "players": [
+                            {
+                                "cnid": "PQ98765",
+                                "score": 0.5
+                            },
+                            {
+                                "cnid": "UV23456",
+                                "score": 0.5
+                            }
+                        ],
+                        "result": "1/2-1/2"
                     }
                 ]
             }

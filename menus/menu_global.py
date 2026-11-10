@@ -7,6 +7,7 @@ from menus.menu_tournament import menu_tournament
 from menus.menu_create_player import menu_create_player
 from menus.menu_update_player import menu_update_player
 from menus.menu_remove_player import menu_remove_player
+from views.tournament_view import sort_tournaments_by_date
 
 
 def menu_global(
@@ -48,7 +49,9 @@ def menu_global(
                 tournament_view.display_tournaments(tournaments)
 
         elif choice == "4":
-            tournaments = tournament_controller.get_tournaments()
+            tournaments = sort_tournaments_by_date(
+                tournament_controller.get_tournaments()
+            )
 
             if not tournaments:
                 print("\nAucun tournoi n'est enregistré.")

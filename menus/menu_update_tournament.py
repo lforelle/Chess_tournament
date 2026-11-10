@@ -2,11 +2,15 @@
 
 from datetime import datetime
 
+from views.tournament_view import sort_tournaments_by_date
+
 
 def menu_update_tournament(tournament_controller, tournament_view):
     """To modify the information of a tournament."""
 
-    tournaments = tournament_controller.get_tournaments()
+    tournaments = sort_tournaments_by_date(
+        tournament_controller.get_tournaments()
+    )
 
     if not tournaments:
         print("\nAucun tournoi n'est enregistré.")
