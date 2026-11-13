@@ -3,18 +3,28 @@ from datetime import datetime
 import re
 
 
-def ask_name(message):
+def ask_name(message, default=None):
     while True:
-        name = input(message).strip().capitalize()
+        name = input(message).strip()
+        if not name and default is not None:
+            return default
+
+        name = name.capitalize()
         if name and name.replace("-", "").replace(" ", "").isalpha():
             return name
 
         print("Erreur : utilisez uniquement des lettres, des espaces ou des tirets !")
 
 
-def ask_birthdate():
+def ask_birthdate(default=None):
     while True:
-        date_input = input("Date de naissance (JJ/MM/AAAA) : ").strip()
+        prompt = "Date de naissance"
+        if default is not None:
+            prompt += f" [{default}]"
+        date_input = input(f"{prompt} (JJ/MM/AAAA) : ").strip()
+
+        if not date_input and default is not None:
+            return default
 
         try:
             birthdate = datetime.strptime(date_input, "%d/%m/%Y")
@@ -24,9 +34,18 @@ def ask_birthdate():
             print("Erreur : saisissez une date valide au format JJ/MM/AAAA !")
 
 
-def ask_cnid():
+def ask_cnid(default=None):
     while True:
-        cnid = input("Identifiant national ('AB12345'): ").strip().upper()
+        if default is None:
+            prompt = "Identifiant national ('AB12345'): "
+        else:
+            prompt = (
+                f"Identifiant national [{default}] ('AB12345') : "
+            )
+        cnid = input(prompt).strip().upper()
+
+        if not cnid and default is not None:
+            return default
 
         if re.fullmatch(r"[A-Z]{2}[0-9]{5}", cnid):
             return cnid

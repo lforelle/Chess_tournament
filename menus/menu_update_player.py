@@ -40,10 +40,16 @@ def menu_update_player(player_controller, tournament_controller, player_view):
     )
 
     print("\n--- Nouvelles informations ---")
-    lastname = ask_name("Nom : ")
-    firstname = ask_name("Prénom : ")
-    birthdate = ask_birthdate()
-    cnid = ask_cnid()
+    lastname = ask_name(
+        f"Nom [{selected_player.lastname}] : ",
+        default=selected_player.lastname,
+    )
+    firstname = ask_name(
+        f"Prénom [{selected_player.firstname}] : ",
+        default=selected_player.firstname,
+    )
+    birthdate = ask_birthdate(default=selected_player.birthdate)
+    cnid = ask_cnid(default=selected_player.cnid)
 
     if player_controller.cnid_is_used(cnid, exclude_index=index):
         print("Erreur : ce CNID est déjà attribué à un autre joueur.")

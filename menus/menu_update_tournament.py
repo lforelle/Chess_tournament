@@ -49,7 +49,8 @@ def menu_update_tournament(tournament_controller, tournament_view):
         updates["place"] = place
 
     start_date = input(
-        f"Date de début [{tournament.start_date.date()}] (JJ/MM/AAAA) : "
+        f"Date de début [{tournament.start_date.strftime('%d/%m/%Y')}] "
+        "(JJ/MM/AAAA) : "
     ).strip()
 
     if start_date:
@@ -60,7 +61,8 @@ def menu_update_tournament(tournament_controller, tournament_view):
             return
 
     end_date = input(
-        f"Date de fin [{tournament.end_date.date()}] (JJ/MM/AAAA) : "
+        f"Date de fin [{tournament.end_date.strftime('%d/%m/%Y')}] "
+        "(JJ/MM/AAAA) : "
     ).strip()
 
     if end_date:

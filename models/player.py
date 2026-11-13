@@ -17,10 +17,10 @@ class Player:
 
     def __str__(self):
         return (
-            f"{self.lastname:<16} |"
-            f"{self.firstname:<16} |"
-            f"{self.birthdate:<11} |"
-            f"{self.cnid:<7}"
+            f"{self.lastname} "
+            f"{self.firstname}"
+            # f"{self.birthdate:<11} |"
+            # f"{self.cnid:<7}"
         )
 
     def to_dict(self):
