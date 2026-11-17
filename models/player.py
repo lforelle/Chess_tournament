@@ -19,8 +19,6 @@ class Player:
         return (
             f"{self.lastname} "
             f"{self.firstname}"
-            # f"{self.birthdate:<11} |"
-            # f"{self.cnid:<7}"
         )
 
     def to_dict(self):

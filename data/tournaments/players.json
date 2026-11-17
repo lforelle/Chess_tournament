@@ -75,19 +75,5 @@
         "birthdate": "18/05/1998",
         "cnid": "AB34567",
         "active": true
-    },
-    {
-        "lastname": "Henry",
-        "firstname": "Stephane",
-        "birthdate": "09/10/1997",
-        "cnid": "ER12456",
-        "active": false
-    },
-    {
-        "lastname": "Ferdot",
-        "firstname": "Annick",
-        "birthdate": "04/02/1967",
-        "cnid": "ER78956",
-        "active": true
     }
 ]

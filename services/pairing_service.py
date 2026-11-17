@@ -58,14 +58,10 @@ class PairingService:
             if is_rematch and not allow_rematches:
                 continue
 
-            remaining_players = [
-                player
-                for player in players
-                if player.cnid not in (
-                    first_player.cnid,
-                    opponent.cnid,
-                )
-            ]
+            remaining_players = []
+            for player in players:
+                if player.cnid not in (first_player.cnid, opponent.cnid):
+                    remaining_players.append(player)
 
             remaining_pairings = self._find_pairings(
                 remaining_players,

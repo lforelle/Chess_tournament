@@ -12,13 +12,18 @@ def menu_register_players(tournament, player_controller, tournament_controller):
 
     while True:
         # Recover the players not registered to the tournament
-        available_players = [
-            player for player in players
-            if all(
-                registered_player.cnid != player.cnid
-                for registered_player in tournament.players
-            )
-        ]
+        available_players = []
+
+        for player in players:
+            already_registered = False
+
+            for registered_player in tournament.players:
+                if player.cnid == registered_player.cnid:
+                    already_registered = True
+                    break
+
+            if not already_registered:
+                available_players.append(player)
 
         if not available_players:
             print("\nTous les joueurs sont déjà inscrits à ce tournoi.")
@@ -60,3 +65,5 @@ def menu_register_players(tournament, player_controller, tournament_controller):
                 f"{selected_player.lastname} "
                 "a été inscrit au tournoi."
             )
+        else:
+            print("\nL'inscription du joueur a échoué.")
