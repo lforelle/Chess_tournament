@@ -2,10 +2,8 @@
 
 import json
 from pathlib import Path
-from datetime import datetime
 
 from models.tournament import Tournament
-from models.round import Round
 
 
 class TournamentRepository:
@@ -17,9 +15,8 @@ class TournamentRepository:
         self.tournaments = []
 
     def load_all(self, players):
-        if (not self.file_path.exists() or self.file_path.stat().st_size == 0):
-            self.tournaments = []
-            return self.tournaments
+        if not self.file_path.exists() or self.file_path.stat().st_size == 0:
+            return []
 
         with self.file_path.open("r", encoding="utf-8") as file:
             tournaments_data = json.load(file)
@@ -27,38 +24,18 @@ class TournamentRepository:
         if not isinstance(tournaments_data, list):
             raise ValueError("Le fichier doit contenir une liste JSON de tournois.")
 
-        # Dico creation to find the players by CNID.
-        players_by_cnid = {player.cnid: player for player in players}
+        players_by_cnid = {
+            player.cnid: player
+            for player in players
+        }
 
         tournaments = []
 
         for data in tournaments_data:
-            tournament = Tournament(
-                name=data["name"],
-                place=data["place"],
-                start_date=datetime.fromisoformat(data["start_date"]),
-                end_date=datetime.fromisoformat(data["end_date"]),
-                description=data["description"],
-                number_of_rounds=data["number_of_rounds"],
-                current_round=data["current_round"],
-            )
-
-            # Restoration of registered players.
-            tournament.players = [
-                players_by_cnid[cnid]
-                for cnid in data.get("players", [])
-            ]
-
-            # Restoration of the rounds and their matches.
-            tournament.rounds = [
-                Round.from_dict(round_data, players_by_cnid)
-                for round_data in data.get("rounds", [])
-            ]
-
+            tournament = Tournament.from_dict(data, players_by_cnid)
             tournaments.append(tournament)
 
-        self.tournaments = tournaments
-        return self.tournaments
+        return tournaments
 
     def save_all(self, tournaments):
         """Save all the tournaments."""

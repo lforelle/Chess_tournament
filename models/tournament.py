@@ -1,5 +1,8 @@
 """Define the Tournament."""
 
+from datetime import datetime
+from models.round import Round
+
 
 class Tournament:
     """A Chess tournament must contain informations like name, place or
@@ -51,3 +54,27 @@ class Tournament:
             "rounds": [round_instance.to_dict()
                        for round_instance in self.rounds],
         }
+
+    @classmethod
+    def from_dict(cls, data, players_by_cnid):
+        tournament = cls(
+            name=data["name"],
+            place=data["place"],
+            start_date=datetime.fromisoformat(data["start_date"]),
+            end_date=datetime.fromisoformat(data["end_date"]),
+            description=data["description"],
+            number_of_rounds=data["number_of_rounds"],
+            current_round=data["current_round"],
+        )
+
+        tournament.players = [
+            players_by_cnid[cnid]
+            for cnid in data.get("players", [])
+        ]
+
+        tournament.rounds = [
+            Round.from_dict(round_data, players_by_cnid)
+            for round_data in data.get("rounds", [])
+        ]
+
+        return tournament
