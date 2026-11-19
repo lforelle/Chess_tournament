@@ -85,7 +85,7 @@ d’un joueur doit être composé de deux lettres suivies de cinq chiffres (par 
   rencontres. Un joueur désactivé ne peut pas être inscrit.
 - Le premier tour est apparié aléatoirement. Pour les tours suivants, les
   joueurs sont ordonnés selon leurs points ; les adversaires déjà rencontrés
-  sont évités si un appariement sans revanche est possible. L’ordre des
+  sont évités si un appairage sans revanche est possible. L’ordre des
   joueurs à égalité et la répartition des couleurs sont aléatoires.
 - Si le nombre de joueurs est impair, un joueur reçoit une exemption (« bye »)
   et gagne un point. Le système privilégie un joueur qui n’a pas déjà reçu
@@ -109,7 +109,7 @@ objets métier et le stockage :
 | `views/` | Affichage des joueurs, tournois, rencontres et classements. |
 | `controllers/` | Orchestration des opérations sur les joueurs, tournois, tours, rencontres et classements. |
 | `models/` | Objets métier `Player`, `Tournament`, `Round` et `Match`, ainsi que leur représentation en données. |
-| `services/` | Logique d’appariement des joueurs et gestion des adversaires déjà rencontrés. |
+| `services/` | Logique d’appairage des joueurs et gestion des adversaires déjà rencontrés. |
 | `repositories/` | Chargement et sauvegarde des joueurs et des tournois au format JSON. |
 | `data/tournaments/` | Fichiers JSON utilisés pour conserver les joueurs et les tournois. |
 | `.flake8` | Configuration de Flake8, notamment les exclusions et la longueur maximale des lignes. |
@@ -133,8 +133,8 @@ data/
 
 `players.json` conserve les informations des joueurs, dont leur statut actif.
 `tournaments.json` conserve les informations des tournois, les CNID des joueurs
-inscrits, les tours, les rencontres, les résultats et les dates. Il est
-recommandé de sauvegarder ces fichiers avant toute modification manuelle.
+inscrits, les tours, les rencontres, les résultats et les dates. 
+Il est recommandé de sauvegarder ces fichiers avant toute modification manuelle.
 
 ## Générer le rapport Flake8
 
