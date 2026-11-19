@@ -36,40 +36,50 @@ class PairingService:
         return False
 
     def _find_pairings(self, players, allow_rematches):
-        """Search for complete coupling avoiding revenges if possible."""
+        """Search for complete pairings avoiding revenges if possible.
+        Each element in that list represent a combination to explore.
+        We start with all the players and no matches created."""
 
-        if not players:
-            return []
+        combinations_to_check = [(players, [])]
 
-        first_player = players[0]
-        previous_opponents = self.get_previous_opponents(first_player)
+        while combinations_to_check:
+            remaining_players, pairings = combinations_to_check.pop()
 
-        candidates = players[1:]
-        random.shuffle(candidates)
+            if not remaining_players:
+                return pairings
 
-        # Favour the players who has not faced off.
-        candidates.sort(
-            key=lambda player: player.cnid in previous_opponents
-        )
+            first_player = remaining_players[0]
 
-        for opponent in candidates:
-            is_rematch = opponent.cnid in previous_opponents
+            previous_opponents = self.get_previous_opponents(first_player)
 
-            if is_rematch and not allow_rematches:
-                continue
+            candidates = remaining_players[1:]
+            random.shuffle(candidates)
 
-            remaining_players = []
-            for player in players:
-                if player.cnid not in (first_player.cnid, opponent.cnid):
-                    remaining_players.append(player)
-
-            remaining_pairings = self._find_pairings(
-                remaining_players,
-                allow_rematches,
+            # # Favour the players who has not faced off.
+            candidates.sort(
+                key=lambda player: player.cnid in previous_opponents
             )
 
-            if remaining_pairings is not None:
-                return [(first_player, opponent)] + remaining_pairings
+            for opponent in candidates:
+                is_rematch = opponent.cnid in previous_opponents
+
+                if is_rematch and not allow_rematches:
+                    continue
+
+                new_remaining_players = []
+
+                for player in remaining_players:
+                    if (
+                        player.cnid != first_player.cnid
+                        and player.cnid != opponent.cnid
+                    ):
+                        new_remaining_players.append(player)
+
+                new_pairings = pairings + [(first_player, opponent)]
+
+                combinations_to_check.append(
+                    (new_remaining_players, new_pairings)
+                )
 
         return None
 
