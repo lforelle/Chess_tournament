@@ -17,17 +17,10 @@ class PlayerRepository:
         with self.file_path.open("r", encoding="utf-8") as file:
             players_data = json.load(file)
 
-        players = []
-
-        for data in players_data:
-            player = Player(
-                data["lastname"],
-                data["firstname"],
-                data["birthdate"],
-                data["cnid"],
-                data.get("active", True),
-            )
-            players.append(player)
+        players = [
+            Player.from_dict(player_data)
+            for player_data in players_data
+        ]
 
         return players
 

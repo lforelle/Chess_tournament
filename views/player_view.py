@@ -30,11 +30,12 @@ class PlayerView:
         print("-" * 74)
 
         for number, player in enumerate(sort_players_by_name(players), start=1):
+            birthdate = player.birthdate.strftime("%d/%m/%Y")
             print(
                 f"{number:<3}| "
                 f"{player.lastname:<16}| "
                 f"{player.firstname:<16}| "
-                f"{player.birthdate:<11}| "
+                f"{birthdate:<11}| "
                 f"{player.cnid:<7}| "
                 f"{'Actif' if player.active else 'Inactif'}"
             )

@@ -22,13 +22,25 @@ class Player:
         )
 
     def to_dict(self):
-        if isinstance(self.birthdate, (date, datetime)):
-            self.birthdate = self.birthdate.strftime("%d/%m/%Y")
+        birthdate = self.birthdate
+
+        if isinstance(birthdate, (date, datetime)):
+            birthdate = birthdate.strftime("%d/%m/%Y")
 
         return {
             "lastname": self.lastname,
             "firstname": self.firstname,
-            "birthdate": self.birthdate,
+            "birthdate": birthdate,
             "cnid": self.cnid,
             "active": self.active,
         }
+
+    @classmethod
+    def from_dict(cls, data):
+        return cls(
+            lastname=data["lastname"],
+            firstname=data["firstname"],
+            birthdate=datetime.strptime(data["birthdate"], "%d/%m/%Y"),
+            cnid=data["cnid"],
+            active=data.get("active", True),
+        )
