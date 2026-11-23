@@ -20,7 +20,7 @@ def ask_birthdate(default=None):
     while True:
         prompt = "Date de naissance"
         if default is not None:
-            prompt += f" [{default}]"
+            prompt += f" [{default.strftime('%d/%m/%Y')}]"
         date_input = input(f"{prompt} (JJ/MM/AAAA) : ").strip()
 
         if not date_input and default is not None:
