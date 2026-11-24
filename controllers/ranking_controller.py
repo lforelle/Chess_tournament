@@ -54,7 +54,8 @@ class RankingController:
         return ranked_players
 
     def get_ranking(self, players):
-        """Return the players and their points, sorted by points then by alphabetical order."""
+        """Return the players and their points, sorted by 
+        points then by alphabetical order."""
 
         ranking = []
 

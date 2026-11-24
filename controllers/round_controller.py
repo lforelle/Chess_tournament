@@ -55,6 +55,9 @@ class RoundController:
         return True
 
     def generate_next_round(self, players):
+        """Generate the next round of the tournament with the given players.
+        Return the round instance if successful, None otherwise."""
+
         # Create the next round of the tournament if <= number of rounds requested
         if len(self.rounds) >= self.tournament.number_of_rounds:
             return None
@@ -90,6 +93,7 @@ class RoundController:
 
             ranked_players.remove(bye_player)
 
+        # Find valid pairings, trying to avoid repetitions.
         pairings = self.pairing_service.find_valid_pairings(
             ranked_players
         )

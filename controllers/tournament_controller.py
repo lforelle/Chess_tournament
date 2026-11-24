@@ -27,10 +27,12 @@ class TournamentController:
         return tournament
 
     def get_tournaments(self):
+        """Return all tournaments."""
         return tuple(self.tournaments)
 
     def register_player(self, tournament, player):
-        """Register a player in the tournament."""
+        """Register a player in the tournament if the player
+          is active and not already registered."""
 
         if not player.active or not any(
             registered_player is player
@@ -87,6 +89,9 @@ class TournamentController:
         return tournament
 
     def validate_player_references(self):
+        """Check that all players used in tournaments are well the 
+        official players objects of the application."""
+
         players = self.player_controller.get_players()
         players_by_cnid = {player.cnid: player for player in players}
 
@@ -113,5 +118,6 @@ class TournamentController:
                     )
 
     def save_all(self):
+        """Save all tournaments and validate the player references."""
         self.validate_player_references()
         self.repository.save_all(self.tournaments)

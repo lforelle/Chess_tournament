@@ -55,7 +55,7 @@ class PairingService:
             candidates = remaining_players[1:]
             random.shuffle(candidates)
 
-            # # Favour the players who has not faced off.
+            # Favour the players who has not faced off.
             candidates.sort(
                 key=lambda player: player.cnid in previous_opponents
             )
