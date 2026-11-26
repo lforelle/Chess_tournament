@@ -3,7 +3,9 @@ from models.round import Round
 
 
 class RoundController:
-    """Manage the creation and the closure of the rounds."""
+    """Manage the creation and the closure of the rounds.
+    It creates the rounds, generate the matchs, manage the byes 
+    players and check if a round can be completed."""
 
     def __init__(
         self,

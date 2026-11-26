@@ -10,7 +10,7 @@ def get_tournament_sort_key(tournament):
 
 
 def sort_tournaments_by_date(tournaments):
-    """Sort tournaments by start date, with None values last."""
+    """Sort tournaments by start date, with None values last and return a new list."""
     return sorted(tournaments, key=get_tournament_sort_key)
 
 

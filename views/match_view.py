@@ -2,21 +2,8 @@
 
 
 class MatchView:
-    def display_matches(self, matches):
-        print("\n--- Liste des matchs ---")
-
-        if not matches:
-            print("Aucun match créé.")
-            return
-
-        number = 1
-        for match in matches:
-            print(f"{number} | ", end="")
-            print(match)
-            number += 1
-
     def display_ranking(self, ranking):
-        """Display the tournament ranking."""
+        """Display the tournament ranking (players/points) and the tournament history."""
 
         print("\n=============== CLASSEMENT DU TOURNOI ================\n")
 

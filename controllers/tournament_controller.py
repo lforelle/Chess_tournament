@@ -9,7 +9,7 @@ class TournamentController:
         self.repository = repository
         self.player_controller = player_controller
         self.tournaments = self.repository.load_all(
-            player_controller.get_players()
+            self.player_controller.get_players()
         )
 
     def create_tournament(self, name, place, start_date, end_date, description, number_of_rounds=4):
@@ -89,7 +89,7 @@ class TournamentController:
         return tournament
 
     def validate_player_references(self):
-        """Check that all players used in tournaments are well the 
+        """Check that all players used in tournaments are well the
         official players objects of the application."""
 
         players = self.player_controller.get_players()
@@ -118,6 +118,6 @@ class TournamentController:
                     )
 
     def save_all(self):
-        """Save all tournaments and validate the player references."""
+        """validate the player references and save all tournaments."""
         self.validate_player_references()
         self.repository.save_all(self.tournaments)
