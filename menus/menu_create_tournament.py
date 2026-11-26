@@ -3,7 +3,7 @@ from datetime import datetime
 
 
 def menu_create_tournament(tournament_controller, tournament_view):
-    """Create a new tournament asking the user to fill in its characteristics, 
+    """Create a new tournament asking the user to fill in its characteristics,
     then transmit this information to the controller to save the tournament."""
 
     name = input("Nom du tournoi: ").strip()
